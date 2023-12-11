@@ -1,0 +1,25 @@
+.custom-navbar {
+  background-color: #F9AE3B;
+
+}
+
+
+.nav-adopt-button{
+  background-color: #A155C1;
+
+}
+
+.nav-adopt-button:hover {
+  background-color: #6e3885;
+}
+
+header{
+display: flex;
+justify-content: center;
+}
+
+.header-2{
+  display: flex;
+  justify-content: center;
+
+}
