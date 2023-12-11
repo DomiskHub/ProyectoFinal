@@ -23,3 +23,20 @@ justify-content: center;
   justify-content: center;
 
 }
+
+.page-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer a{
+  color: white;
+  font-size: 30px;
+  text-decoration: none;
+
+}
+
+footer p {
+font-size: 20px;
+}

@@ -28,6 +28,8 @@ return (
     </header>
     <br />
     <h2 className='header-2'>ADOPTA UN GATITO Y CONVIERTETE EN LA KAREN QUE SIEMPRE SOÑASTE SER </h2>
+    <br />
+    
   </div>
 )
 }
