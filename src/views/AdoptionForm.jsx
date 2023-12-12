@@ -1,12 +1,7 @@
-
-import React from 'react'
+import React from "react";
 
 const AdoptionForm = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+  return <div>adopta</div>;
+};
 
-export default AdoptionForm
+export default AdoptionForm;
