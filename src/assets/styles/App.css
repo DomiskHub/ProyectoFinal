@@ -29,16 +29,6 @@
 
 /* HEADER */
 
-header {
-  display: flex;
-  justify-content: center;
-}
-
-.header-2 {
-  display: flex;
-  justify-content: center;
-}
-
 /* FOOTER  */
 
 .page-footer {
