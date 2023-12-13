@@ -5,7 +5,7 @@ import { faInstagram, faFacebook, faWhatsapp } from "@fortawesome/free-brands-sv
 import { Link } from "react-router-dom";
 
 const Footer = () => (
-  <footer className="bg-dark text-white ">
+  <footer className="bg-dark text-white  ">
     <Container>
       <Row>
         <Col md={6} className="mb-2 mb-md-0">
