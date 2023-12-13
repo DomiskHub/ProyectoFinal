@@ -14,12 +14,14 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="commitment">
+            
             <h3>Compromiso con los Gatitos</h3>
             <p>
               Somos un equipo comprometido de amantes de los gatos y defensores de su bienestar. Trabajamos incansablemente para garantizar que cada gatito que llega a nuestras manos reciba atención veterinaria integral, alimentación adecuada, y, sobre todo, mucho cariño. Nuestro objetivo es encontrar hogares permanentes y amorosos para todos nuestros rescatados.
             </p>
           </div>
           <div className="what-we-do">
+          <img src="https://www.codigosanluis.com/wp-content/uploads/2020/02/gatos-1.jpg" alt="Gatito" className="about-us-image" />
             <h3>¿Qué Hacemos?</h3>
             <ul>
               <li>Rescate y rehabilitación de gatitos abandonados o en situación de calle.</li>
@@ -29,6 +31,7 @@ const AboutUs = () => {
             </ul>
           </div>
           <div className="our-history">
+          
             <h3>Nuestra Historia</h3>
             <p>
               <span className="highlight">Se una Karen</span> se inició con la visión de un grupo de amantes de los gatos que querían marcar la diferencia en la vida de estos animales. Desde nuestros humildes comienzos, hemos crecido gracias al apoyo y la dedicación de nuestra comunidad y voluntarios comprometidos. Cada historia de adopción exitosa nos impulsa a seguir adelante en nuestra causa.
@@ -39,6 +42,7 @@ const AboutUs = () => {
             Únete a nosotros en esta noble misión y haz la diferencia en la vida de estos increíbles compañeros peludos.
           </p>
           <div className="karen text-center">
+          <img src="https://www.fokkerpetfood.com/files/images/331-img-765_o.jpg" alt="Gatito" className="about-us-image" />
             <h3>¿De dónde viene el nombre "Karen"?</h3>
             <p>
               En la actualidad, en redes como Instagram o Tik Tok, son frecuentes los videos en los que los gatos aparecen como protagonistas y se los dobla o subtitula traduciendo sus voz para demostrar cómo hablan de sus dueños refiriéndose a ellos como Karen, ya sea para criticarlos o para darles órdenes o consejos.
