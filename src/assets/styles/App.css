@@ -58,6 +58,40 @@ width: 400px;
 height: 300px;
 }
 
+/*ABOUT US*/
+
+.about-us-image{
+  width: 1000px;
+  height: 300px;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-radius: 20px;
+  transition: transform 0.3s ease;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+}
+.about-us-image:hover {
+  transform: scale(1.1); 
+}
+
+.aboutUs-container{
+margin: 30px;
+}
+.section-title,
+.mission, 
+.commitment, 
+.what-we-do, 
+.our-history, 
+.final-message,
+.karen{
+  text-align: center;
+  margin: 20px;
+  margin-left: 150px;
+  margin-right: 150px;
+  display: block;
+}
+
 /* FOOTER  */
 
 .page-footer {
