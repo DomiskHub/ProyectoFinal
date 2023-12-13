@@ -30,13 +30,34 @@
 /* HEADER */
 
 .header-img {
-  height: 50vh;
+  height: 60vh;
   object-fit: cover;
 }
 
 .header-2 {
   text-align: center;
+  margin: 20px;
 }
+
+/* GLIDE */
+
+.glide__slide{
+  display: flex;
+  justify-content: center;
+  margin: 20px 20px ;
+}
+.glide__arrow--left,
+.glide__arrow--right {
+  background-color: black; 
+}
+
+/*CARDS*/
+
+.card{
+width: 400px;
+height: 300px;
+}
+
 /* FOOTER  */
 
 .page-footer {
