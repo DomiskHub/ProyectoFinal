@@ -15,6 +15,9 @@ const NavigationBar = () => {
           </Link>
           <Nav className="ml-auto" style={{ flex: 1 }}></Nav>
           <Nav className="justify-content-end cat-links">
+          <NavLink className={({ isActive }) => (isActive ? "cat-nav" : undefined)} to="/">
+              HOME
+            </NavLink>
             <NavLink className={({ isActive }) => (isActive ? "cat-nav" : undefined)} to="/quienes_somos">
               QUIENES SOMOS
             </NavLink>
