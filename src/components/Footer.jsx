@@ -5,10 +5,10 @@ import { faInstagram, faFacebook, faWhatsapp } from "@fortawesome/free-brands-sv
 import { Link } from "react-router-dom";
 
 const Footer = () => (
-  <footer className="bg-dark text-white py-2 fixed-bottom">
+  <footer className="bg-dark text-white ">
     <Container>
       <Row>
-        <Col md={6} className="mb-3 mb-md-0">
+        <Col md={6} className="mb-2 mb-md-0">
           <footer className="d-flex justify-content-start">
             <a href="https://www.instagram.com/" target="blank">
               <FontAwesomeIcon icon={faInstagram} className="m-3 icons" />
@@ -27,7 +27,7 @@ const Footer = () => (
           </Link>
         </Col>
       </Row>
-      <p className="text-center m-1">© 2023 Se una KAREN</p>
+      <p className="text-center">© 2023 Se una KAREN</p>
     </Container>
   </footer>
 );

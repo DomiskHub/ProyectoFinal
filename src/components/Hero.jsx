@@ -6,7 +6,7 @@ const Hero = () => {
       <Carousel>
         <Carousel.Item>
           <img
-            className="d-block w-100 "
+            className="d-block w-100 header-img"
             src="https://www.shutterstock.com/image-photo/funny-ginger-cat-sitting-cardboard-600nw-1939653673.jpg"
             alt="First slide"
           />
@@ -17,7 +17,7 @@ const Hero = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-block w-100 header-img"
             src="https://www.shutterstock.com/image-photo/funny-ginger-cat-sitting-cardboard-600nw-1939653673.jpg"
             alt="Second slide"
           />
@@ -28,13 +28,13 @@ const Hero = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            className="d-block w-100"
+            className="d-block w-100 header-img"
             src="https://www.shutterstock.com/image-photo/funny-ginger-cat-sitting-cardboard-600nw-1939653673.jpg"
             alt="Second slide"
           />
           <Carousel.Caption>
-            <h3>Título de la diapositiva 2</h3>
-            <p>Descripción de la diapositiva 2.</p>
+            <h3>Título de la diapositiva 3</h3>
+            <p>Descripción de la diapositiva 3.</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
