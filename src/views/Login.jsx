@@ -22,8 +22,6 @@ const Login = () => {
               <Button className="sesion-submit-btn" type="submit">
                 Iniciar Sesion
               </Button>
-            </div>
-            <div className="container-btn">
               <Button className="login-submit-btn" type="submit">
                 Crear mi cuenta
               </Button>

@@ -99,7 +99,7 @@ margin: 30px;
   border-radius: 8px;
   margin: auto; 
   margin-bottom: 48px;
-  width: 600px; /* Ajustar el ancho del contenedor */
+  width: 600px; 
 }
 
 /* FOOTER  */
@@ -138,7 +138,19 @@ footer p {
 }
 
 /* Iniciar Sesion */
+.login-card{
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 48px;
+}
 
+.container-btn{
+display: flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+gap:10px;
+}
 
 
 
@@ -192,8 +204,8 @@ footer p {
   font-size: x-large;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 100px; /* Add margin-bottom to create space between header and form */
-  margin-top: 0; /* Remove default top margin */
+  margin-bottom: 100px; 
+  margin-top: 0; 
   color: #000;
 }
 
