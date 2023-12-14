@@ -34,6 +34,9 @@ const NavigationBar = () => {
               <Link to="/crear_cuenta" className="m-1 nav-signup-button">
                 <button className="btn btn-dark">CREAR CUENTA</button>
               </Link>
+              <Link to="/perfil" className="m-1 nav-signup-button">
+                <button className="btn btn-dark">PERFIL</button>
+              </Link>
             </div>
           </Nav>
         </Container>
