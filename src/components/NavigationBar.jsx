@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const NavigationBar = () => {
   return (
     <div>
-      <Navbar className="custom-navbar text-dark py-4 " variant="light">
+      <Navbar className="custom-navbar text-dark py-4  " variant="light">
         <Container>
           <Link to="/" className="ms-auto">
             LOGO

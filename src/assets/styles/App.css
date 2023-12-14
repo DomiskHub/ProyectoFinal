@@ -92,6 +92,16 @@ margin: 30px;
   display: block;
 }
 
+/* FORMULARIO DE ADOPCION */
+.container-style {
+  background-color: #F9AE3B;
+  padding: 20px;
+  border-radius: 8px;
+  margin: auto; 
+  margin-bottom: 48px;
+  width: 600px; /* Ajustar el ancho del contenedor */
+}
+
 /* FOOTER  */
 
 .page-footer {
