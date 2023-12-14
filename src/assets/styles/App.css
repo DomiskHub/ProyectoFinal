@@ -125,3 +125,61 @@ footer p {
 .error p {
   font-size: 20px;
 }
+
+/* SignUp */
+
+.signup-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 82vh;
+  background-color: white
+}
+
+.signup-card {
+  width: 400px;
+  padding: 50px;
+  background-color: #f9ae3b; 
+  height: auto;
+}
+
+.signup-header {
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 100px; /* Add margin-bottom to create space between header and form */
+  margin-top: 0; /* Remove default top margin */
+  color: #000;
+}
+.signup-form-label {
+  font-weight: bold;
+  color: #000; 
+}
+
+.signup-input {
+  margin-bottom: 15px;
+}
+
+.signup-input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.signup-submit-btn {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 50px;
+  display: block; 
+}
+
+.signup-submit-btn:hover {
+  background-color: #6e3885; 
+}
+
