@@ -4,6 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
+import logoKaren from '../assets/imgs/logo-karen.svg';
 
 const NavigationBar = () => {
   return (
@@ -11,7 +12,8 @@ const NavigationBar = () => {
       <Navbar className="custom-navbar text-dark py-4  " variant="light">
         <Container>
           <Link to="/" className="ms-auto">
-            LOGO
+            <img className="logo-karen" type="image/svg+xml" src={logoKaren}/>
+
           </Link>
           <Nav className="ml-auto" style={{ flex: 1 }}></Nav>
           <Nav className="justify-content-end cat-links">

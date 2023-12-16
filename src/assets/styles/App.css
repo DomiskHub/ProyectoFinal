@@ -1,6 +1,7 @@
 /* NAVBAR */
 .custom-navbar {
   background-color: #f9ae3b;
+  background-image: url("../imgs/navBar-bg.png");
 }
 
 .nav-adopt-button {
@@ -9,6 +10,11 @@
 
 .nav-adopt-button:hover {
   background-color: #6e3885;
+}
+
+.logo-karen{
+width: 15rem;
+
 }
 
 /* NAVLINKS */
@@ -120,6 +126,57 @@ footer p {
   font-size: 15px;
   margin: auto;
 }
+
+.footer-container{
+  display: flex;
+  flex-direction: column;
+  background-color: #000;
+  background-image: url("../imgs/footer-bg.png") ;
+  color: #ffffff;
+  text-align: center;
+
+}
+
+.footer-form{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+
+.form-map{
+  display: flex;
+  justify-content: space-around;
+  padding-top: 5%;
+}
+
+
+.social-footer{
+  display: flex;
+  justify-content: center;
+  width: 30%;
+  margin: auto;
+}
+
+.social-footer a{
+  font-size: 1.5rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+.rrss-legal{
+  width: 50%;
+  margin: auto;
+}
+
+.btn-footer {
+  background-color: #a155c1;
+}
+
+.btn-footer:hover {
+  background-color: #6e3885;
+}
+
 
 /* NOTFOUND */
 .error {
@@ -259,3 +316,54 @@ gap:10px;
   background-color: #6e3885; 
 }
 
+
+/* PERFIL */
+
+.container-profileView{
+  display: flex;
+}
+
+
+.btn-editarPerfil {
+  background-color: #a155c1;
+}
+
+.btn-editarPerfil:hover {
+  background-color: #6e3885;
+}
+
+.boxDatos-miPerfil{
+  background-color: #ddd;
+  width: 35%;
+  min-height: 80vh;
+  padding: 5%;
+  text-decoration: none;
+}
+.boxDatos-miPerfil li ul{
+  list-style: none;
+}
+.boxDatos-miPerfil ul{
+  padding: 0;
+  list-style: none;
+  font-weight: bold;
+}
+.boxDatos-miPerfil img{
+  width: 55%;
+  border: solid 1px #000;
+  border-radius: 50%;
+  margin-bottom: 5%;
+}
+
+
+
+.tab-Profile{
+  width: 65%;
+  background-color: #f4f4f4;
+  padding: 5%;
+}
+
+.nav-tabs .nav-link{
+  background-color: blueviolet;
+  color: white;
+  border: solid 2px #ffffff;
+}
