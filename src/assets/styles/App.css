@@ -367,3 +367,66 @@ gap:10px;
   color: white;
   border: solid 2px #ffffff;
 }
+
+/* CREATE POST */
+.create-post-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 82vh;
+  background-color: white;
+}
+
+.create-post-card {
+  width: 700px;
+  padding: 40px;
+  background-color: lightgray;
+  height: auto;
+}
+
+.create-post-header {
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 0;
+  color: #000;
+}
+
+.create-post-form-label {
+  font-weight: bold;
+  color: #000;
+}
+
+.create-post-input {
+  margin-bottom: 15px;
+
+}
+
+.create-post-input input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+.create-post-input .Descripcion {
+  padding: 30px;
+}
+
+.create-post-submit-btn {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  width: 200px;
+  padding: 30px;
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 50px;
+  display: block;
+}
+
+.create-post-submit-btn:hover {
+  background-color: #6e3885;
+}
+
