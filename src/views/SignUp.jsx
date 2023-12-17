@@ -6,10 +6,8 @@ const SignUp = () => {
     <Container className='signup-container'>
       <Card className="signup-card mt-5">
         <Card.Body>
-          <div className="signup-header">
-            <div className="texto">CREAR MI CUENTA</div>
-          </div>
-          <Form>
+            <h1>Crear mi cuenta</h1>
+          <Form className='form-sign-up'>
             <Form.Group controlId="formFirstName" className="signup-input">
             
               <Form.Control type="text" placeholder="Nombre *" />
