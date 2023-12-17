@@ -38,10 +38,10 @@ width: 15rem;
   margin-right: 20px;
 }
 
-/* HEADER */
 
+/* HEADER */
 .header-img {
-  height: 60vh;
+  height: 40vh;
   object-fit: cover;
 }
 
@@ -49,6 +49,22 @@ width: 15rem;
   text-align: center;
   margin: 20px;
 }
+
+.carousel-hero{
+  display: flex;
+}
+
+.caption-hero{
+  width: 30%;
+  color: #fff;
+  text-align: left;
+  padding: 1rem !important;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: 5% 0;
+}
+
 
 /* GLIDE */
 
@@ -367,6 +383,12 @@ gap:10px;
   display: flex;
 }
 
+.btns-perfil{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+  gap: 1rem;
+}
 
 .btn-editarPerfil {
   background-color: #a155c1;
@@ -374,6 +396,13 @@ gap:10px;
 
 .btn-editarPerfil:hover {
   background-color: #6e3885;
+}
+
+.btn-cerrar-sesion{
+  background-color: rgb(0, 0, 0);
+}
+.btn-cerrar-sesion:hover{
+  background-color: rgb(85, 85, 85);
 }
 
 .boxDatos-miPerfil{

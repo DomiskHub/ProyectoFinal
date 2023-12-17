@@ -22,7 +22,10 @@ const Profile = () => {
         <li>Dirección:</li>
         <li>Correo:</li>
       </ul>
+      <div className='btns-perfil'>
       <Button className='btn-editarPerfil'>Editar Perfil</Button>
+      <Button className='btn-cerrar-sesion'>Cerrar Sesión</Button>
+      </div>
     </div>
 
         <div className='tab-Profile'>
