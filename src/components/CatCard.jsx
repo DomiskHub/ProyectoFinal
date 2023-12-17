@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 
 const CatCard = ({ cat }) => {
   return (
-    <>
+    <div>
       <Card className="d-flex justify-content-center align-items-center">
         <Card.Img className="catcard-img" variant="top" src={cat.imagen} />
         <Card.Body className="text-center">
@@ -29,7 +29,7 @@ const CatCard = ({ cat }) => {
           </div>
         </Card.Body>
       </Card>
-    </>
+    </div>
   );
 };
 
