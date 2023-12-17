@@ -5,17 +5,15 @@ const Login = () => {
   return (
     <Container className='login-container'>
       <Card className="login-card mt-5">
+      <h1>Iniciar Sesión</h1>
         <Card.Body>
-          <div className="login-header">
-            <div className="texto">INICIAR SESION</div>
-          </div>
           <Form>
             <Form.Group controlId="formFirstName" className="login-input">
               <Form.Control type="text" placeholder="Usuario" />
             </Form.Group>
 
             <Form.Group controlId="formLastName" className="login-input">
-              <Form.Control type="text" placeholder="Contrasena *" />
+              <Form.Control type="password" placeholder="Contrasena *" />
             </Form.Group>
 
             <div className="container-btn">
@@ -23,7 +21,7 @@ const Login = () => {
                 Iniciar Sesion
               </Button>
               <Button className="login-submit-btn" type="submit">
-                Crear mi cuenta
+                Crear cuenta
               </Button>
             </div>
           </Form>

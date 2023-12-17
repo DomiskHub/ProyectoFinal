@@ -6,15 +6,20 @@
 
 .nav-adopt-button {
   background-color: #a155c1;
+  color: white;
 }
 
 .nav-adopt-button:hover {
   background-color: #6e3885;
+  color: white;
 }
 
 .logo-karen{
 width: 15rem;
+}
 
+.active-nav{
+  border: solid 2px rgb(114, 21, 201) !important;
 }
 
 /* NAVLINKS */
@@ -101,12 +106,26 @@ margin: 30px;
 /* FORMULARIO DE ADOPCION */
 .container-style {
   background-color: #F9AE3B;
-  padding: 20px;
+  padding: 2.5rem;
   border-radius: 8px;
   margin: auto; 
-  margin-bottom: 48px;
-  width: 600px; 
+  margin-bottom: 10%;
+  width: 40%;
 }
+
+.input-adoption-form{
+  margin-bottom: 1rem !important;
+}
+
+.form-label{
+  margin-bottom: 0;
+}
+
+.container-style h1{
+  text-align: center;
+  margin-bottom: 8%;
+}
+
 
 /* FOOTER  */
 
@@ -218,15 +237,22 @@ gap:10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 82vh;
   background-color: white;
 }
 
+.form-sign-up{
+  margin-top: 8%;
+
+}
+
 .login-card {
-  width: 400px;
-  padding: 50px;
+  width: 40%;
+  padding: 2.5rem;
   background-color: #f9ae3b;
   height: auto;
+}
+.login-card h1{
+  text-align: center;
 }
 
 .login-header {
@@ -251,10 +277,12 @@ gap:10px;
 }
 
 .signup-card {
-  width: 400px;
-  padding: 50px;
-  background-color: #f9ae3b; 
+  width: 40%;
+  padding: 2.5rem;
+  background-color: #f9ae3b;
   height: auto;
+  margin-bottom: 5%;
+  text-align: center;
 }
 
 .signup-header {
@@ -296,7 +324,7 @@ gap:10px;
 }
 
 .sesion-submit-btn {
-  background-color: green;
+  background-color: #000;
   cursor: pointer;
   color: white;
   padding: 10px 20px;
@@ -306,7 +334,23 @@ gap:10px;
   margin-top: 10px;
   display: block;
 }
+.sesion-submit-btn:hover {
+  background-color: #6e3885;
+}
 
+
+
+.login-submit-btn {
+  background-color: #000;
+  cursor: pointer;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin: auto;
+  margin-top: 10px;
+  display: block;
+}
 .login-submit-btn:hover {
   background-color: #6e3885;
 }
@@ -373,15 +417,23 @@ gap:10px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 82vh;
   background-color: white;
 }
 
+.form-crear-publicacion{
+  margin-top: 8%;
+}
+
+.input-descripcion{
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
 .create-post-card {
-  width: 700px;
-  padding: 40px;
-  background-color: lightgray;
+  width: 90%;
+  padding: 2rem;
   height: auto;
+  background-color: #f9ae3b;
 }
 
 .create-post-header {
