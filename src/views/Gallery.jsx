@@ -13,7 +13,7 @@ const Gallery = () => {
       <div className="grid-container">
         {cats &&
           cats.map((cat, index) => (
-            <Card key={index} style={{ width: "18rem" }}>
+            <Card className="text-center" key={index} style={{ width: "18rem" }}>
               <Card.Img className="catcard-img" variant="top" src={cat.imagen} />
               <Card.Body>
                 <Card.Title>{cat.nombre}</Card.Title>

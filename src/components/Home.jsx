@@ -21,7 +21,7 @@ const Home = () => {
         <Header />
       </div>
       <div>
-        <div className="glide">
+        <div className="glide cat-slider-container">
           {cats && (
             <div className="glide__track" data-glide-el="track">
               <Cards cats={cats} />
