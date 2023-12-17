@@ -29,13 +29,16 @@ const AdoptionForm = () => {
   };
 
   return (
+<div className='adoption-form'>
     <Container className={`mt-5 container-style`}>
+    <h1>Formulario de adopción</h1>
       <Row className="justify-content-md-center">
         <Col xs={12} md={8}>
           <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="formFirstName" className="text-center">
+      <Form.Group controlId="formFirstName" >
         <Form.Label>Nombre</Form.Label>
         <Form.Control
+          className='input-adoption-form' 
           type="text"
           placeholder="Ingresa tu nombre"
           name="firstName"
@@ -45,9 +48,10 @@ const AdoptionForm = () => {
         />
       </Form.Group>
 
-      <Form.Group controlId="formLastName" className="text-center">
+      <Form.Group controlId="formLastName" >
         <Form.Label>Apellido</Form.Label>
         <Form.Control
+          className='input-adoption-form'
           type="text"
           placeholder="Ingresa tu apellido"
           name="lastName"
@@ -57,9 +61,10 @@ const AdoptionForm = () => {
         />
       </Form.Group>
 
-      <Form.Group controlId="formRut" className="text-center">
+      <Form.Group controlId="formRut" >
         <Form.Label>RUT</Form.Label>
         <Form.Control
+          className='input-adoption-form'
           type="text"
           placeholder="Ingresa tu RUT"
           name="rut"
@@ -69,9 +74,10 @@ const AdoptionForm = () => {
         />
       </Form.Group>
 
-      <Form.Group controlId="formEmail" className="text-center">
+      <Form.Group controlId="formEmail" >
         <Form.Label>Correo Electrónico</Form.Label>
         <Form.Control
+          className='input-adoption-form'
           type="email"
           placeholder="Ingresa tu correo electrónico"
           name="email"
@@ -81,9 +87,10 @@ const AdoptionForm = () => {
         />
       </Form.Group>
 
-      <Form.Group controlId="formPhoneNumber" className="text-center">
+      <Form.Group controlId="formPhoneNumber" >
         <Form.Label>Número de Teléfono</Form.Label>
         <Form.Control
+          className='input-adoption-form'
           type="tel"
           placeholder="Ingresa tu número de teléfono"
           name="phoneNumber"
@@ -167,7 +174,7 @@ const AdoptionForm = () => {
 
             {/* Botón Enviar */}
             <div className="text-center">
-              <Button variant="primary" type="submit">
+              <Button className="login-submit-btn" type="submit">
                 Enviar
               </Button>
             </div>
@@ -175,6 +182,7 @@ const AdoptionForm = () => {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 export default AdoptionForm;
