@@ -41,50 +41,50 @@
 
 /* GLIDE */
 
-.glide__slide{
+.glide__slide {
   display: flex;
   justify-content: center;
-  margin: 20px 20px ;
+  margin: 20px 20px;
 }
 .glide__arrow--left,
 .glide__arrow--right {
-  background-color: black; 
+  background-color: black;
 }
 
 /*CARDS*/
 
-.card{
-width: 400px;
-height: 300px;
+.card {
+  width: 400px;
+  height: 300px;
 }
 
 /*ABOUT US*/
 
-.about-us-image{
+.about-us-image {
   width: 1000px;
   height: 300px;
   object-fit: cover;
-  margin:30px auto;
+  margin: 30px auto;
   display: block;
   border-radius: 20px;
   transition: transform 0.3s ease;
   box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
 }
 .about-us-image:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1);
 }
 
-.aboutUs-container{
-margin: 30px;
+.aboutUs-container {
+  margin: 30px;
 }
 
 .section-title,
-.mission, 
-.commitment, 
-.what-we-do, 
-.our-history, 
+.mission,
+.commitment,
+.what-we-do,
+.our-history,
 .final-message,
-.karen{
+.karen {
   text-align: center;
   margin: 20px;
   margin-left: 150px;
@@ -94,12 +94,12 @@ margin: 30px;
 
 /* FORMULARIO DE ADOPCION */
 .container-style {
-  background-color: #F9AE3B;
+  background-color: #f9ae3b;
   padding: 20px;
   border-radius: 8px;
-  margin: auto; 
+  margin: auto;
   margin-bottom: 48px;
-  width: 600px; 
+  width: 600px;
 }
 
 /* FOOTER  */
@@ -138,26 +138,23 @@ footer p {
 }
 
 /* Iniciar Sesion */
-.login-card{
+.login-card {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 48px;
 }
 
-.container-btn{
-display: flex;
-align-items: center;
-justify-content: center;
-flex-direction: column;
-gap:10px;
+.container-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
-
-
 
 /* SignUp */
 
 .signup-container {
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -190,13 +187,13 @@ gap:10px;
 }
 
 .login-input input {
-  background-color: white
+  background-color: white;
 }
 
 .signup-card {
   width: 400px;
   padding: 50px;
-  background-color: #f9ae3b; 
+  background-color: #f9ae3b;
   height: auto;
 }
 
@@ -204,14 +201,14 @@ gap:10px;
   font-size: x-large;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 100px; 
-  margin-top: 0; 
+  margin-bottom: 100px;
+  margin-top: 0;
   color: #000;
 }
 
 .signup-form-label {
   font-weight: bold;
-  color: #000; 
+  color: #000;
 }
 
 .signup-input {
@@ -224,7 +221,6 @@ gap:10px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
-
 
 .signup-submit-btn {
   cursor: pointer;
@@ -254,8 +250,6 @@ gap:10px;
   background-color: #6e3885;
 }
 
-
 .signup-submit-btn:hover {
-  background-color: #6e3885; 
+  background-color: #6e3885;
 }
-
