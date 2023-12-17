@@ -1,16 +1,19 @@
-
 import Header from "./Header";
 import glide from "../utils/glider.js";
-import { useEffect } from "react";
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
+import { useEffect, useContext } from "react";
+import { GlobalContext } from "../context/CardContext.jsx";
+import Cards from "./Cards.jsx";
+import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Home = () => {
-  useEffect(() => {
-    glide(".glide", {
-    });
-  }, []);
+  const { cats } = useContext(GlobalContext);
 
+  useEffect(() => {
+    if (cats) {
+      glide(".glide", {});
+    }
+  }, [cats]);
 
   return (
     <div>
@@ -19,51 +22,24 @@ const Home = () => {
       </div>
       <div>
         <div className="glide">
-          <div className="glide__track" data-glide-el="track">
-            <ul className="glide__slides">
-              <li className="glide__slide">
-                <Card>
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-                </Card>
-                
-              </li>
-              <li className="glide__slide">
-                <Card>
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-                </Card>
-              </li>
-              <li className="glide__slide">
-                <Card>
-                  <Card.Img variant="top" src="holder.js/100px180" />
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>Some quick example text to build on the card title and make up the bulk of the card's content.</Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                  </Card.Body>
-                </Card>
-              </li>
-            </ul>
-            <div className="glide__arrows" data-glide-el="controls">
-              <button className="glide__arrow glide__arrow--left" data-glide-dir="<">
-                prev
-              </button>
-              <button className="glide__arrow glide__arrow--right" data-glide-dir=">">
-                next
-              </button>
+          {cats && (
+            <div className="glide__track" data-glide-el="track">
+              <Cards cats={cats} />
+              <div className="glide__arrows" data-glide-el="controls">
+                <button className="glide__arrow glide__arrow--left" data-glide-dir="<">
+                  prev
+                </button>
+                <button className="glide__arrow glide__arrow--right" data-glide-dir=">">
+                  next
+                </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
+      <Link to="/galeria">
+        <Button className="mx-auto mt-3 mb-3 d-block btn-galeria-completa">Ver Galeria completa</Button>
+      </Link>
     </div>
   );
 };
