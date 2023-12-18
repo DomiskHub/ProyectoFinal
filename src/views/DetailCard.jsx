@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { GlobalContext } from "../context/CardContext";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 
 const DetailCard = () => {
   const { id } = useParams();
@@ -40,7 +41,9 @@ const DetailCard = () => {
             </Card.Title>
             <Card.Text>{cat.descripcion}</Card.Text>
             <div>
-              <Button variant="info">Adoptar</Button>
+            <Link to="/adopta">
+                  <Button className="button-card button-card-gallery">Adoptar</Button>
+              </Link>
             </div>
           </Card.Body>
         </Card>

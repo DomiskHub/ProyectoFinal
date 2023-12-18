@@ -1,7 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link, useNavigate } from "react-router-dom";
 
 const CatCard = ({ cat }) => {
+  const navigate = useNavigate()
+
   return (
     <div>
       <Card className="d-flex justify-content-center align-items-center">
@@ -20,12 +23,13 @@ const CatCard = ({ cat }) => {
             </Card.Text>
           </Card.Text>
           <div className="d-flex justify-content-center">
-            <Button className="button-card" variant="primary">
-              Adopta
-            </Button>
-            <Button className="button-card-detail" variant="primary">
-              Detalles
-            </Button>
+              <Link to="/adopta">
+                  <Button className="button-card button-card-gallery">Adoptar</Button>
+              </Link>
+                    {/* //al boton mas info le hice la funcion directamente (funcion anonima) */}
+                    <Button className="button-card" onClick={() => navigate(`/detalle-gato/${cat.id}`)}> 
+                            +Info
+                    </Button>
           </div>
         </Card.Body>
       </Card>

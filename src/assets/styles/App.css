@@ -1,3 +1,8 @@
+a {
+  color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
+  text-decoration:none;
+}
+
 /* NAVBAR */
 .custom-navbar {
   background-color: #f9ae3b;
@@ -105,11 +110,16 @@
   background-color: #6e3885;
 }
 
-.btn-galeria-completa,
+.btn-galeria-completa {
+  background-color: #000;
+  text-decoration: none;
+}
+
 .button-card-detail {
   background-color: #a155c1;
   text-decoration: none;
 }
+
 
 .btn-galeria-completa:hover,
 .button-card-detail:hover {
@@ -126,7 +136,7 @@
 
 .cat-detail-img {
   width: 100%;
-  height: 200px;
+  height: auto;
 }
 
 .container-detail-card-dani {
@@ -178,6 +188,10 @@
   margin-left: 150px;
   margin-right: 150px;
   display: block;
+}
+
+.button-card-gallery{
+margin-right: 0.5rem;
 }
 
 /* FORMULARIO DE ADOPCION */

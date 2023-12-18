@@ -5,6 +5,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 
 const Gallery = () => {
@@ -35,11 +36,11 @@ const Gallery = () => {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="d-flex justify-content-center">
-                    <Button className="button-card" variant="primary">
-                      Adopta
-                    </Button>
+                  <Link to="/adopta">
+                    <Button className="button-card button-card-gallery">Adoptar</Button>
+                  </Link>
                         {/* //al boton mas info le hice la funcion directamente (funcion anonima) */}
-                        <Button variant="danger" onClick={() => navigate(`/detalle-gato/${cat.id}`)}> 
+                        <Button className="button-card" onClick={() => navigate(`/detalle-gato/${cat.id}`)}> 
                             Mas info
                         </Button>
                   </div>
