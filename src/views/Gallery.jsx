@@ -4,9 +4,13 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import { Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom"
+
 
 const Gallery = () => {
   const { cats } = useContext(GlobalContext);
+  const navigate = useNavigate()
+
 
   return (
     <Container>
@@ -34,9 +38,10 @@ const Gallery = () => {
                     <Button className="button-card" variant="primary">
                       Adopta
                     </Button>
-                    <Button className="button-card-detail" variant="primary">
-                      Detalles
-                    </Button>
+                        {/* //al boton mas info le hice la funcion directamente (funcion anonima) */}
+                        <Button variant="danger" onClick={() => navigate(`/detalle-gato/${cat.id}`)}> 
+                            Mas info
+                        </Button>
                   </div>
                 </ListGroup.Item>
               </ListGroup>
