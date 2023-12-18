@@ -18,8 +18,8 @@ const NavigationBar = () => {
           <img className="logo-karen" type="image/svg+xml" src={logoKaren} alt="Logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse className="justify-content-end" id="responsive-navbar-nav">
-          <Nav className="ml-md-auto cat-links" style={{ flex: 1 }}>
+        <Navbar.Collapse className="justify-content-end " id="responsive-navbar-nav">
+          <Nav className="ml-md-auto  cat-links" style={{ flex: 1 }}>
             <NavLink className="nav-link" activeClassName="active" exact to="/">
               HOME
             </NavLink>
