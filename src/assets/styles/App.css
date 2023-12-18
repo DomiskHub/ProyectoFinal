@@ -596,10 +596,115 @@ footer p {
 
 /*          MEDIA QUERIES        */
 
+/* MEDIA QUERIES PARA MOBILE */
+@media only screen and (max-width: 576px) {
+  /* MEDIA HERO */
+  .caption-hero {
+    width: 90%;
+    font-size: 14px;
+    text-align: center;
+    top: 40%;
+  }
 
-/* MEDIA NAVBAR */
+  /* MEDIA HOME */
+  .adoption-text {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+  /* MEDIA GALLERY */
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-form {
+    width: 80%;
+    margin-bottom: 20px;
+  }
+
+  .form-map {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-map iframe {
+    width: 100%;
+    height: 200px;
+  }
+
+  .social-footer {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .rrss-legal {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  /* MEDIA ABOUT US */
+  .section-title,
+  .mission,
+  .commitment,
+  .what-we-do,
+  .our-history,
+  .final-message,
+  .karen {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  /* MEDIA ABOUT US - IMAGE */
+  .about-us-image {
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 300px;
+    height: auto;
+  }
+
+  /* MEDIA CONTAINER STYLE */
+  .container-style {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  /* MEDIA FORMULARIO DE ADOPCION */
+  .container-style h1 {
+    margin-bottom: 4%;
+  }
+
+  /* MEDIA SIGNUP */
+  .signup-card {
+    width: 90%;
+  }
+
+  /* MEDIA LOGIN */
+  .login-card {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  /* MEDIA PROFILE */
+  .container-profileView {
+    flex-direction: column;
+  }
+
+  /* MEDIA PROFILE - NAV-TABS */
+  .nav-tabs .nav-link {
+    font-size: 14px;
+  }
+
+  /* MEDIA GLIDE */
+  .glide__slide {
+    width: 100%;
+    margin-right: 0;
+    flex: none;
+  }
+}
+
+/* MEDIA QUERIES PARA TABLET */
+@media only screen and (min-width: 577px) and (max-width: 1024px) {
+  /* MEDIA NAVBAR */
   .custom-navbar {
     padding: 1rem;
   }
@@ -611,166 +716,51 @@ footer p {
   .cat-links a {
     margin-right: 10px;
   }
-}
 
-/* MEDIA HERO  */
-
-@media (max-width: 576px) {
-  .caption-hero {
-    width: 90%;
-    font-size: 14px;
-    text-align: center;
-    top: 40%;
-  }
-}
-
-
-@media (min-width: 577px) and (max-width: 1024px) {
+  /* MEDIA HERO */
   .caption-hero {
     width: 70%;
     font-size: 16px;
   }
-}
 
-
-@media (min-width: 1025px) {
-  .caption-hero {
-    width: 50%;
-    font-size: 18px;
-  }
-}
-
-/* MEDIA HOME  */
-
-@media only screen and (max-width: 600px) {
-  .adoption-text {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* MEDIA HOME */
   .adoption-text {
     margin-left: 100px;
     margin-right: 100px;
   }
-}
 
-@media only screen and (min-width: 1025px) {
-  .adoption-text {
-    margin-left: 150px;
-    margin-right: 150px;
-  }
-}
-
-/* MEDIA GALLERY  */
-@media (max-width: 992px) {
+  /* MEDIA GALLERY */
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }
-}
 
-@media (max-width: 768px) {
-  .grid-container {
-    grid-template-columns: 1fr;
-  }
-}
+  /* MEDIA FOOTER */
+  
 
-/*  MEDIA FOOTER  */
-
-@media only screen and (max-width: 600px) {
+  /* MEDIA FOOTER */
   .footer-form {
-    width: 80%; 
-    margin-bottom: 20px; 
+    width: 70%;
   }
 
   .form-map {
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    align-items: center;
   }
 
   .form-map iframe {
     width: 100%;
-    height: 200px; 
+    height: 250px;
   }
 
-  .social-footer {
-    width: 100%; 
-    margin-bottom: 20px; 
-  }
-
+  .social-footer,
   .rrss-legal {
-    width: 90%; 
-    margin-bottom: 20px; 
+    width: 70%;
+    margin-bottom: 20px;
   }
 }
 
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  .footer-form {
-    width: 70%; 
-  }
-
-  .form-map {
-    flex-direction: column; 
-    align-items: center; 
-  }
-
-  .form-map iframe {
-    width: 100%; 
-    height: 250px; 
-  }
-
-  .social-footer {
-    width: 70%; 
-    margin-bottom: 20px; 
-  }
-
-  .rrss-legal {
-    width: 70%; 
-    margin-bottom: 20px; 
-  }
-}
-
-@media only screen and (min-width: 1025px) {
-  .footer-form {
-    width: 40%;
-  }
-
-  .social-footer {
-    width: 30%; 
-  }
-
-  .rrss-legal {
-    width: 50%; 
-  }
-}
-
-
-.btn-footer {
-  background-color: #a155c1;
-}
-
-.btn-footer:hover {
-  background-color: #6e3885;
-}
-
-/* MEDIA  ABOUT US   */
-
-@media only screen and (max-width: 600px) {
-  .section-title,
-  .mission,
-  .commitment,
-  .what-we-do,
-  .our-history,
-  .final-message,
-  .karen {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  
+  /* MEDIA ABOUT US */
   .section-title,
   .mission,
   .commitment,
@@ -781,145 +771,37 @@ footer p {
     margin-left: 100px;
     margin-right: 100px;
   }
-}
 
-@media only screen and (min-width: 1025px) {
-  .section-title,
-  .mission,
-  .commitment,
-  .what-we-do,
-  .our-history,
-  .final-message,
-  .karen {
-    margin-left: 150px;
-    margin-right: 150px;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .about-us-image {
-    border-radius: 10px; 
-    margin: 20px auto;
-    max-width: 300px; 
-    height: auto;
-  }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  /* MEDIA ABOUT US - IMAGE */
   .about-us-image {
     border-radius: 15px;
     margin: 25px auto;
-    max-width: 500px; 
+    max-width: 500px;
     height: auto;
   }
-}
 
-@media (max-width: 576px) {
-  .container-style {
-    width: 90%;
-    padding: 1.5rem;
-  }
-  
-  .container-style h1 {
-    margin-bottom: 4%;
-  }
-}
-
-/* MEDIA FORMULARIO DE ADOPCION */
-@media (max-width: 576px) {
-  .container-style {
-    width: 90%;
-    padding: 1.5rem;
-  }
-  
-  .container-style h1 {
-    margin-bottom: 4%;
-  }
-}
-
-@media (min-width: 577px) and (max-width: 1024px) {
+  /* MEDIA CONTAINER STYLE */
   .container-style {
     width: 70%;
   }
-}
 
-@media (min-width: 1025px) {
-  .container-style {
-    width: 40%;
+  /* MEDIA FORMULARIO DE ADOPCION */
+  .container-style h1 {
+    margin-bottom: 4%;
   }
-}
 
-/* MEDIA SIGNUP */
-
-@media (max-width: 576px) {
-  .signup-card {
-    width: 90%;
-  }
-  
-  .form-sign-up {
-    margin-top: 15%;
-  }
-}
-
-@media (min-width: 577px) and (max-width: 1024px) {
+  /* MEDIA SIGNUP */
   .signup-card {
     width: 70%;
   }
-}
 
-@media (min-width: 1025px) {
-  .signup-card {
-    width: 50%;
-  }
-}
-
-/* MEDIA LOGIN */
-@media (max-width: 576px) {
-  .login-card {
-    width: 90%;
-    padding: 1.5rem;
-  }
-}
-
-
-@media (min-width: 577px) and (max-width: 1024px) {
+  /* MEDIA LOGIN */
   .login-card {
     width: 70%;
     padding: 2rem;
   }
-}
 
-
-@media (min-width: 1025px) {
-  .login-card {
-    width: 40%;
-    padding: 2.5rem;
-  }
-}
-
-/* MEDIA PROFILE*/
-
-
-@media (max-width: 576px) {
-  .container-profileView {
-    flex-direction: column;
-  }
-
-  .btns-perfil {
-    width: 100%;
-  }
-
-  .boxDatos-miPerfil {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .tab-Profile {
-    width: 100%;
-  }
-}
-
-@media (min-width: 577px) and (max-width: 1024px) {
+  /* MEDIA PROFILE */
   .btns-perfil {
     width: 45%;
   }
@@ -931,14 +813,94 @@ footer p {
   .tab-Profile {
     width: 55%;
   }
-}
 
-@media (min-width: 1025px) {
-  .container-profileView {
-    flex-direction: row;
-    justify-content: space-between;
+/* MEDIA QUERIES PARA LAPTOP Y DESKTOP */
+@media only screen and (min-width: 1025px) {
+  /* MEDIA NAVBAR */
+  .custom-navbar {
+    padding: 1rem;
   }
 
+  .logo-karen {
+    width: 10rem;
+  }
+
+  .cat-links a {
+    margin-right: 10px;
+  }
+
+  /* MEDIA HERO */
+  .caption-hero {
+    width: 50%;
+    font-size: 18px;
+  }
+
+  /* MEDIA HOME */
+  .adoption-text {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
+  /* MEDIA GALLERY */
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* MEDIA FOOTER */
+  .footer-form {
+    width: 40%;
+  }
+
+  .social-footer {
+    width: 30%;
+  }
+
+  .rrss-legal {
+    width: 50%;
+  }
+
+  /* MEDIA ABOUT US */
+  .section-title,
+  .mission,
+  .commitment,
+  .what-we-do,
+  .our-history,
+  .final-message,
+  .karen {
+    margin-left: 150px;
+    margin-right: 150px;
+  }
+
+  /* MEDIA ABOUT US - IMAGE */
+  .about-us-image {
+    border-radius: 15px;
+    margin: 25px auto;
+    max-width: 500px;
+    height: auto;
+  }
+
+  /* MEDIA CONTAINER STYLE */
+  .container-style {
+    width: 40%;
+  }
+
+  /* MEDIA FORMULARIO DE ADOPCION */
+  .container-style h1 {
+    margin-bottom: 4%;
+  }
+
+  /* MEDIA SIGNUP */
+  .signup-card {
+    width: 50%;
+  }
+
+  /* MEDIA LOGIN */
+  .login-card {
+    width: 40%;
+    padding: 2.5rem;
+  }
+
+  /* MEDIA PROFILE */
   .btns-perfil {
     width: 40%;
   }
@@ -949,37 +911,5 @@ footer p {
 
   .tab-Profile {
     width: 60%;
-  }
-}
-
-@media (max-width: 767px) {
-  .nav-tabs .nav-link {
-    font-size: 14px;
-  }
-}
-
-/* MEDIA GLIDE */
-
-@media (max-width: 576px) {
-  .glide__slide {
-    width: 100%;
-    margin-right: 0;
-    flex: none;
-  }
-}
-
-@media (min-width: 577px) and (max-width: 1024px) {
-  .glide__slide {
-    width: 50%;
-    margin-right: 1rem;
-    flex: none;
-  }
-}
-
-@media (min-width: 1025px) {
-  .glide__slide {
-    width: 33.33%;
-    margin-right: 1rem;
-    flex: none;
   }
 }
