@@ -15,6 +15,9 @@ const Gallery = () => {
 
   return (
     <Container>
+      <div>
+        <h1 className="m-4 text-center">Gatitos en adopción</h1>
+      </div>
       <div className="grid-container">
         {cats &&
           cats.map((cat, index) => (

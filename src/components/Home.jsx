@@ -11,14 +11,17 @@ const Home = () => {
 
   useEffect(() => {
     if (cats) {
-      glide(".glide", {});
+      glide(".glide");
     }
   }, [cats]);
-
+  
   return (
     <div>
       <div>
         <Header />
+      </div>
+      <div>
+        <h1 className="text-center mb-4">Nuestros gatitos🐈</h1>
       </div>
       <div>
         <div className="glide cat-slider-container">
@@ -37,9 +40,11 @@ const Home = () => {
           )}
         </div>
       </div>
+      <div className="m-5">
       <Link to="/galeria">
         <Button className="mx-auto mt-3 mb-3 d-block btn-galeria-completa">Ver Galeria completa</Button>
       </Link>
+      </div>
     </div>
   );
 };
