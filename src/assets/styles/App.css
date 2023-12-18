@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
 a {
   color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
   text-decoration:none;
@@ -72,14 +78,14 @@ a {
 }
 
 .caption-hero {
-  width: 30%;
+  width: 50%;
   color: #000;
   text-align: left;
   padding: 1rem !important;
   position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: 5% 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* GLIDE */
@@ -607,7 +613,35 @@ footer p {
   }
 }
 
+/* MEDIA HERO  */
+
+@media (max-width: 576px) {
+  .caption-hero {
+    width: 90%;
+    font-size: 14px;
+    text-align: center;
+    top: 40%;
+  }
+}
+
+
+@media (min-width: 577px) and (max-width: 1024px) {
+  .caption-hero {
+    width: 70%;
+    font-size: 16px;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .caption-hero {
+    width: 50%;
+    font-size: 18px;
+  }
+}
+
 /* MEDIA HOME  */
+
 @media only screen and (max-width: 600px) {
   .adoption-text {
     margin-left: 20px;
