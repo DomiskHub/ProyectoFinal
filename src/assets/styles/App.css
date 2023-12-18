@@ -67,8 +67,6 @@
 /* GLIDE */
 
 .glide__slide {
-  /* display: flex;
-  justify-content: center; */
   margin: 0.3rem;
 }
 
@@ -76,7 +74,6 @@
 .glide__arrow--right {
   background-color: black;
 }
-
 
 /*CARDS*/
 
@@ -120,21 +117,23 @@
 }
 
 /* DETAIL CARD */
-.detail-card-dani{
+.detail-card-dani {
   width: 100% !important;
   display: flex !important;
   flex-direction: row !important;
   margin: auto;
 }
 
-.container-detail-card-dani{
+.cat-detail-img {
+  width: 100%;
+  height: 200px;
+}
+
+.container-detail-card-dani {
   width: 100%;
   margin: auto;
   padding: 2%;
-
 }
-
-
 
 /* GALLERY  */
 
