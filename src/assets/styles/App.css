@@ -669,10 +669,14 @@ footer p {
   }
 
   /* MEDIA FORMULARIO DE ADOPCION */
+  .container-style {
+    width: 90%;
+    padding: 1.5rem;
+  }
+  
   .container-style h1 {
     margin-bottom: 4%;
   }
-
   /* MEDIA SIGNUP */
   .signup-card {
     width: 90%;
@@ -685,9 +689,24 @@ footer p {
   }
 
   /* MEDIA PROFILE */
+
   .container-profileView {
     flex-direction: column;
   }
+
+  .btns-perfil {
+    width: 100%;
+  }
+
+  .boxDatos-miPerfil {
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .tab-Profile {
+    width: 100%;
+  }
+}
 
   /* MEDIA PROFILE - NAV-TABS */
   .nav-tabs .nav-link {
@@ -700,7 +719,7 @@ footer p {
     margin-right: 0;
     flex: none;
   }
-}
+
 
 /* MEDIA QUERIES PARA TABLET */
 @media only screen and (min-width: 577px) and (max-width: 1024px) {
