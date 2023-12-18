@@ -6,6 +6,7 @@ import NavigationBar from "./components/NavigationBar";
 import Footer from "./components/Footer";
 import AboutUs from "./views/AboutUs";
 import Gallery from "./views/Gallery";
+import DetailCard from "./views/DetailCard";
 import AdoptionForm from "./views/AdoptionForm";
 import Notfound from "./views/NotFound";
 import SignUp from "./views/SignUp";
@@ -23,6 +24,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/quienes_somos" element={<AboutUs />} />
             <Route path="/galeria" element={<Gallery />} />
+            <Route path='/detalle-gato/:id' element={ <DetailCard /> } />
             <Route path="/adopta" element={<AdoptionForm />} />
             <Route path="/iniciar_sesion" element={<Login />} />
             <Route path="/crear_cuenta" element={<SignUp />} />

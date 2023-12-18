@@ -67,8 +67,8 @@
 /* GLIDE */
 
 .glide__slide {
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
   margin: 0.3rem;
 }
 
@@ -76,6 +76,7 @@
 .glide__arrow--right {
   background-color: black;
 }
+
 
 /*CARDS*/
 
@@ -117,6 +118,23 @@
 .button-card-detail:hover {
   background-color: #6e3885;
 }
+
+/* DETAIL CARD */
+.detail-card-dani{
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  margin: auto;
+}
+
+.container-detail-card-dani{
+  width: 100%;
+  margin: auto;
+  padding: 2%;
+
+}
+
+
 
 /* GALLERY  */
 
