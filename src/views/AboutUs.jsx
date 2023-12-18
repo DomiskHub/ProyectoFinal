@@ -21,7 +21,7 @@ const AboutUs = () => {
             </p>
           </div>
           <div className="what-we-do">
-          <img src="https://www.codigosanluis.com/wp-content/uploads/2020/02/gatos-1.jpg" alt="Gatito" className="about-us-image" />
+          
             <h3>¿Qué Hacemos?</h3>
             <ul>
               <li>Rescate y rehabilitación de gatitos abandonados o en situación de calle.</li>

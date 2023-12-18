@@ -1,10 +1,24 @@
 import Glide from "@glidejs/glide";
-const glide = (id) => {
-  new Glide(id, {
+
+const glide = () => {
+  const myGlide = new Glide('.glide', {
     type: "carousel",
     startAt: 0,
     perView: 3,
-  }).mount();
+    breakpoints: {
+      576: {
+        perView: 1
+      },
+      768: {
+        perView: 2
+      },
+      1025: {
+        perView: 3
+      }
+    }
+  });
+
+  myGlide.mount();
 };
 
 export default glide;
