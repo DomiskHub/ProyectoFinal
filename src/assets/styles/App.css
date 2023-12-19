@@ -654,15 +654,13 @@ footer p {
   .our-history,
   .final-message,
   .karen {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
-  /* MEDIA ABOUT US - IMAGE */
+  /* Ajustes para la imagen */
   .about-us-image {
-    border-radius: 10px;
-    margin: 20px auto;
-    max-width: 300px;
+    width: 100%; /* La imagen ocupará el ancho completo del contenedor */
     height: auto;
   }
 
