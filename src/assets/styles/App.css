@@ -173,6 +173,20 @@ a {
   margin: 3%;
 }
 
+.icon {
+  position: absolute;
+  right: 0;
+}
+
+/* FAVORITES */
+
+.grid-container-favorites {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+  align-items: center;
+}
+
 /*ABOUT US*/
 
 .about-us-image {
@@ -490,9 +504,6 @@ footer p {
 
 .boxDatos-miPerfil {
   background-color: #ddd;
-  width: 35%;
-  min-height: 80vh;
-  padding: 5%;
   text-decoration: none;
 }
 .boxDatos-miPerfil li ul {
@@ -508,12 +519,6 @@ footer p {
   border: solid 1px #000;
   border-radius: 50%;
   margin-bottom: 5%;
-}
-
-.tab-Profile {
-  width: 65%;
-  background-color: #f4f4f4;
-  padding: 5%;
 }
 
 .nav-tabs .nav-link {
@@ -603,6 +608,11 @@ footer p {
     top: 40%;
   }
 
+  .link {
+    display: inline;
+    text-align: right;
+  }
+
   .detail-card-dani {
     width: 100% !important;
     display: flex;
@@ -646,6 +656,14 @@ footer p {
     margin-bottom: 20px;
   }
 
+  /* MEDIA FAVORITES */
+
+  .grid-container-favorites {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 40px;
+  }
+
   /* MEDIA ABOUT US */
   .section-title,
   .mission,
@@ -658,9 +676,8 @@ footer p {
     margin-right: 10px;
   }
 
-  /* Ajustes para la imagen */
   .about-us-image {
-    width: 100%; /* La imagen ocupará el ancho completo del contenedor */
+    width: 100%;
     height: auto;
   }
 
@@ -697,15 +714,6 @@ footer p {
   }
 
   .btns-perfil {
-    width: 100%;
-  }
-
-  .boxDatos-miPerfil {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
-  .tab-Profile {
     width: 100%;
   }
 }
@@ -822,14 +830,7 @@ footer p {
 /* MEDIA PROFILE */
 .btns-perfil {
   width: 45%;
-}
-
-.boxDatos-miPerfil {
-  width: 45%;
-}
-
-.tab-Profile {
-  width: 55%;
+  width: auto;
 }
 
 /* MEDIA QUERIES PARA LAPTOP Y DESKTOP */
@@ -921,13 +922,5 @@ footer p {
   /* MEDIA PROFILE */
   .btns-perfil {
     width: 40%;
-  }
-
-  .boxDatos-miPerfil {
-    width: 35%;
-  }
-
-  .tab-Profile {
-    width: 60%;
   }
 }

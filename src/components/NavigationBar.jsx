@@ -31,22 +31,22 @@ const NavigationBar = () => {
             </NavLink>
           </Nav>
           <Nav className="justify-content-end cat-links mt-2">
-            <Link to="/adopta" className="m-1">
+            <Link to="/adopta" className="m-1 link">
               <button className={`btn nav-adopt-button ${activeButton === "adopta" ? "active-nav" : ""}`} onClick={() => handleButtonClick("adopta")}>
                 ADOPTA
               </button>
             </Link>
-            <Link to="/iniciar_sesion" className="m-1 nav-login-button">
+            <Link to="/iniciar_sesion" className="m-1 nav-login-button link">
               <button className={`btn btn-dark ${activeButton === "iniciar_sesion" ? "active-nav" : ""}`} onClick={() => handleButtonClick("iniciar_sesion")}>
                 INICIAR SESIÓN
               </button>
             </Link>
-            <Link to="/crear_cuenta" className="m-1 nav-signup-button">
+            <Link to="/crear_cuenta" className="m-1 nav-signup-button link">
               <button className={`btn btn-dark ${activeButton === "crear_cuenta" ? "active-nav" : ""}`} onClick={() => handleButtonClick("crear_cuenta")}>
                 CREAR CUENTA
               </button>
             </Link>
-            <Link to="/perfil" className="m-1 nav-signup-button">
+            <Link to="/perfil" className="m-1 nav-signup-button link">
               <button className={`btn btn-dark ${activeButton === "perfil" ? "active-nav" : ""}`} onClick={() => handleButtonClick("perfil")}>
                 PERFIL
               </button>
