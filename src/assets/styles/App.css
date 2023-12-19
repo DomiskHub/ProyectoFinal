@@ -164,6 +164,16 @@ a {
 
 /* GALLERY  */
 
+.input-search {
+  display: flex;
+  justify-content: center;
+}
+
+.input-style {
+  border-radius: 5px;
+  border: 1px solid rgb(205, 205, 205);
+}
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
