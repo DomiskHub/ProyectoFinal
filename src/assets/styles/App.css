@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
 
-*{
-  font-family: 'Roboto', sans-serif;
+* {
+  font-family: "Roboto", sans-serif;
 }
 
 a {
-  color:rgba(var(--bs-link-color-rgb),var(--bs-link-opacity,1));
-  text-decoration:none;
+  color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
+  text-decoration: none;
 }
 
 /* NAVBAR */
@@ -32,7 +32,6 @@ a {
 .active-nav {
   border: solid 2px rgb(114, 21, 201) !important;
 }
-
 
 /* NAVLINKS */
 
@@ -139,7 +138,6 @@ a {
   text-decoration: none;
 }
 
-
 .btn-galeria-completa:hover,
 .button-card-detail:hover {
   background-color: #6e3885;
@@ -154,8 +152,8 @@ a {
 }
 
 .cat-detail-img {
-  width: 100%;
-  height: auto;
+  width: 50%;
+  height: 50%;
 }
 
 .container-detail-card-dani {
@@ -213,8 +211,8 @@ a {
   display: block;
 }
 
-.button-card-gallery{
-margin-right: 0.5rem;
+.button-card-gallery {
+  margin-right: 0.5rem;
 }
 
 /* FORMULARIO DE ADOPCION */
@@ -593,7 +591,6 @@ footer p {
   background-color: #6e3885;
 }
 
-
 /*          MEDIA QUERIES        */
 
 /* MEDIA QUERIES PARA MOBILE */
@@ -604,6 +601,13 @@ footer p {
     font-size: 14px;
     text-align: center;
     top: 40%;
+  }
+
+  .detail-card-dani {
+    width: 100% !important;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
   }
 
   /* MEDIA HOME */
@@ -673,7 +677,7 @@ footer p {
     width: 90%;
     padding: 1.5rem;
   }
-  
+
   .container-style h1 {
     margin-bottom: 4%;
   }
@@ -708,18 +712,17 @@ footer p {
   }
 }
 
-  /* MEDIA PROFILE - NAV-TABS */
-  .nav-tabs .nav-link {
-    font-size: 14px;
-  }
+/* MEDIA PROFILE - NAV-TABS */
+.nav-tabs .nav-link {
+  font-size: 14px;
+}
 
-  /* MEDIA GLIDE */
-  .glide__slide {
-    width: 100%;
-    margin-right: 0;
-    flex: none;
-  }
-
+/* MEDIA GLIDE */
+.glide__slide {
+  width: 100%;
+  margin-right: 0;
+  flex: none;
+}
 
 /* MEDIA QUERIES PARA TABLET */
 @media only screen and (min-width: 577px) and (max-width: 1024px) {
@@ -754,7 +757,6 @@ footer p {
   }
 
   /* MEDIA FOOTER */
-  
 
   /* MEDIA FOOTER */
   .footer-form {
@@ -778,60 +780,59 @@ footer p {
   }
 }
 
-  
-  /* MEDIA ABOUT US */
-  .section-title,
-  .mission,
-  .commitment,
-  .what-we-do,
-  .our-history,
-  .final-message,
-  .karen {
-    margin-left: 100px;
-    margin-right: 100px;
-  }
+/* MEDIA ABOUT US */
+.section-title,
+.mission,
+.commitment,
+.what-we-do,
+.our-history,
+.final-message,
+.karen {
+  margin-left: 100px;
+  margin-right: 100px;
+}
 
-  /* MEDIA ABOUT US - IMAGE */
-  .about-us-image {
-    border-radius: 15px;
-    margin: 25px auto;
-    max-width: 500px;
-    height: auto;
-  }
+/* MEDIA ABOUT US - IMAGE */
+.about-us-image {
+  border-radius: 15px;
+  margin: 25px auto;
+  max-width: 500px;
+  height: auto;
+}
 
-  /* MEDIA CONTAINER STYLE */
-  .container-style {
-    width: 70%;
-  }
+/* MEDIA CONTAINER STYLE */
+.container-style {
+  width: 70%;
+}
 
-  /* MEDIA FORMULARIO DE ADOPCION */
-  .container-style h1 {
-    margin-bottom: 4%;
-  }
+/* MEDIA FORMULARIO DE ADOPCION */
+.container-style h1 {
+  margin-bottom: 4%;
+}
 
-  /* MEDIA SIGNUP */
-  .signup-card {
-    width: 70%;
-  }
+/* MEDIA SIGNUP */
+.signup-card {
+  width: 70%;
+}
 
-  /* MEDIA LOGIN */
-  .login-card {
-    width: 70%;
-    padding: 2rem;
-  }
+/* MEDIA LOGIN */
+.login-card {
+  width: 70%;
+  padding: 2rem;
+}
 
-  /* MEDIA PROFILE */
-  .btns-perfil {
-    width: 45%;
-  }
+/* MEDIA PROFILE */
+.btns-perfil {
+  width: 45%;
+}
 
-  .boxDatos-miPerfil {
-    width: 45%;
-  }
+.boxDatos-miPerfil {
+  width: 45%;
+}
 
-  .tab-Profile {
-    width: 55%;
-  }
+.tab-Profile {
+  width: 55%;
+}
 
 /* MEDIA QUERIES PARA LAPTOP Y DESKTOP */
 @media only screen and (min-width: 1025px) {
