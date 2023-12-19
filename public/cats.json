@@ -9,6 +9,7 @@
     "ubicacion": "Las Condes, Santiago de Chile",
     "descripcion": "Simón, el explorador intrépido: Simón es un gato naranjo muy curioso y aventurero. Le encanta investigar cada rincón de la casa, subirse a lugares altos y jugar con juguetes que despierten su curiosidad.",
     "esterilizado": "No",
+    "liked": false,
     "imagen": "https://hips.hearstapps.com/hmg-prod/images/beautiful-smooth-haired-red-cat-lies-on-the-sofa-royalty-free-image-1678488026.jpg?crop=0.88847xw:1xh;center,top&resize=1200:*"
   },
   {
@@ -21,6 +22,7 @@
     "ubicacion": "Macul, Santiago de Chile",
     "descripcion": "Lilita, la independiente: Lilita es una gata blanca atigrada  de pelo corto que valora su espacio y tiempo a solas. Aunque a veces busca mimos, prefiere tener su propia área donde descansar sin interrupciones.",
     "esterilizado": "Si",
+    "liked": false,
     "imagen": "https://as2.ftcdn.net/v2/jpg/01/78/44/61/1000_F_178446190_UPH4iJ38bNKcvLzJQGYab0VxmjsKN9eh.jpg"
   },
   {
@@ -33,6 +35,7 @@
     "ubicacion": "La Cisterna, Santiago de Chile ",
     "descripcion": "Max, el juguetón enérgico: Max es un gato atigrado de gran tamaño que está siempre en movimiento. Le encanta correr, saltar y jugar con pelotas o juguetes que impliquen actividad física.",
     "esterilizado": "Si",
+    "liked": false,
     "imagen": "https://www.tugatobengali.com/wp-content/uploads/2022/03/gatocomuneuropeo.jpg"
   },
   {
@@ -45,6 +48,7 @@
     "ubicacion": "Valdivia, Region de Los Rios",
     "descripcion": "Cleo, la tímida y reservada: Cleo, una gata blanca de ojos azules, es muy cariñosa pero necesita tiempo para confiar en nuevas personas. Es tímida con los desconocidos y prefiere esconderse hasta sentirse segura.",
     "esterilizado": "Si",
+    "liked": false,
     "imagen": "https://t1.ea.ltmcdn.com/es/posts/7/7/4/cuidados_para_un_gato_blanco_22477_orig.jpg"
   },
   {
@@ -57,6 +61,7 @@
     "ubicacion": "La Serena, Region de Coquimbo",
     "descripcion": "Leo, el gato vocal: Leo, un gato naranja y blanco, se comunica constantemente con maullidos. Es expresivo y utiliza diferentes tonos para pedir comida, atención o simplemente expresar su alegría.",
     "esterilizado": "Si",
+    "liked": false,
     "imagen": "https://i.pinimg.com/736x/37/d0/62/37d062a8ec4aaef6dc59531ce1f83c8a.jpg"
   },
   {
@@ -69,6 +74,7 @@
     "ubicacion": "Ñuñoa, Santiago de Chile",
     "descripcion": "Zelda, la territorial: Zelda es una gata atigrada que defiende su espacio. Es un poco posesiva con sus juguetes y lugares preferidos en casa. Aunque puede ser cariñosa, prefiere mantener el control de su territorio.",
     "esterilizado": "No",
+    "liked": false,
     "imagen": "https://www.elespectador.com/resizer/FzIZf-gW0UD2aIcfhS0txfwpxqI=/920x613/filters:quality(60):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/BOP5BVFGYBDMDK4J5B7YQ3VOUM.jpg"
   },
   {
@@ -81,6 +87,7 @@
     "ubicacion": "Temuco, Region de La Araucania",
     "descripcion": "Bella, la sociable: Bella es una gata calico que disfruta de la compañía. Le encanta interactuar con personas y otros gatos, se adapta fácilmente a nuevos entornos y es amigable con todos.",
     "esterilizado": "No",
+    "liked": false,
     "imagen": "https://img.freepik.com/fotos-premium/gato-calico-ojos-amarillos-sienta-arbol_771703-30030.jpg"
   },
   {
@@ -93,6 +100,7 @@
     "ubicacion": "La Reina, Santiago de Chile",
     "descripcion": "Oliver, el tranquilo y relajado: Oliver es un gato gris de pelo largo que prefiere la paz y la tranquilidad. Le encanta dormir largas siestas y pasar el tiempo echado en su cama favorita.",
     "esterilizado": "Si",
+    "liked": false,
     "imagen": "https://www.elespectador.com/resizer/60CLDr1342JPgAbGcpiNebS79bU=/657x0/filters:quality(60):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/KHYLDDXDT5BCLBABKRR6LXRLQU.jpg"
   },
   {
@@ -105,6 +113,7 @@
     "ubicacion": "Concepcion, Region del BioBio",
     "descripcion": " Luna, la cariñosa: Luna es una gata persa de pelo largo que adora estar cerca de las personas. Siempre busca caricias y ronronea fuerte cuando la miman. Es afectuosa y le encanta acurrucarse en el regazo de su humano.",
     "esterilizado": "Si",
+    "liked": false,
     "imagen": "https://imagenes.muyinteresante.es/files/vertical_composte_image/uploads/2022/10/12/6346a183381c5.jpeg"
   },
   {
@@ -117,6 +126,7 @@
     "ubicacion": "Melipilla, Region Metropolitana",
     "descripcion": "Milo, el travieso y juguetón: Milo, un gato blanco con manchas negras, siempre está tramando travesuras. Le gusta esconder objetos, corretear por la casa y jugar con cualquier cosa que pueda encontrar.",
     "esterilizado": "No",
+    "liked": false,
     "imagen": "data:image/jpeg;base64,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"
   },
   {
@@ -129,6 +139,7 @@
     "ubicacion": "San Antonio, Region de Valparaiso",
     "descripcion": "Sombra, el observador reflexivo: Sombra, un gato negro de pelo corto, es muy observador. Toma su tiempo para analizar las situaciones antes de actuar, siempre parece estar pensando en sus próximos movimientos.",
     "esterilizado": "Si",
+    "liked": false,
     "imagen": "https://media.glamour.mx/photos/6529b544daab1b14402e2b34/master/pass/qu%C3%A9-significa-encontrarte-con-un-gato-negro-en-viernes-13-.png"
   },
   {
@@ -141,6 +152,7 @@
     "ubicacion": "Providencia, Santiago de Chile",
     "descripcion": "Sophie, la noble y elegante: Sophie es una gata siamesa de porte majestuoso. Siempre muestra una actitud distinguida y elegante, con movimientos suaves y una mirada noble que capta la atención de todos.",
     "esterilizado": "Si",
+    "liked": false,
     "imagen": "https://www.elespectador.com/resizer/ZDUJaKW7lQuA_e6y5Y6IXWWfA3I=/968x645/filters:quality(60):format(jpeg)/cloudfront-us-east-1.images.arcpublishing.com/elespectador/VWG5YLUQP5FHFGVU4PQK2QTU3U.jpg"
   }
 ]

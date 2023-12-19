@@ -4,14 +4,13 @@ import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
 import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import IconHeart from "../components/IconHeart.jsx";
 
 const Gallery = () => {
-  const { cats } = useContext(GlobalContext);
-  const navigate = useNavigate()
-
+  const { cats, toggleFavoritePhoto } = useContext(GlobalContext);
+  const navigate = useNavigate();
 
   return (
     <Container>
@@ -23,6 +22,9 @@ const Gallery = () => {
           cats.map((cat, index) => (
             <Card className="text-center" key={index} style={{ width: "18rem" }}>
               <Card.Img className="catcard-img" variant="top" src={cat.imagen} />
+              <div className="icon" onClick={() => toggleFavoritePhoto(cat)}>
+                <IconHeart filled={cat.liked} />
+              </div>
               <Card.Body>
                 <Card.Title>{cat.nombre}</Card.Title>
                 <Card.Text></Card.Text>
@@ -39,13 +41,13 @@ const Gallery = () => {
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <div className="d-flex justify-content-center">
-                  <Link to="/adopta">
-                    <Button className="button-card button-card-gallery">Adoptar</Button>
-                  </Link>
-                        {/* //al boton mas info le hice la funcion directamente (funcion anonima) */}
-                        <Button className="button-card" onClick={() => navigate(`/detalle-gato/${cat.id}`)}> 
-                            Mas info
-                        </Button>
+                    <Link to="/adopta">
+                      <Button className="button-card button-card-gallery">Adoptar</Button>
+                    </Link>
+                    {/* //al boton mas info le hice la funcion directamente (funcion anonima) */}
+                    <Button className="button-card" onClick={() => navigate(`/detalle-gato/${cat.id}`)}>
+                      Mas info
+                    </Button>
                   </div>
                 </ListGroup.Item>
               </ListGroup>
