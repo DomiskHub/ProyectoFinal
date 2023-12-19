@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
-  const [cats, setCats] = useState();
+  const [cats, setCats] = useState([]);
   const [favorites, setFavorites] = useState([]);
   const getData = async () => {
     try {
