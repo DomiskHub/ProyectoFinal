@@ -3,12 +3,24 @@ import { Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logoKaren from "../assets/imgs/logo-karen.svg";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const NavigationBar = () => {
   const [activeButton, setActiveButton] = useState("");
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
+  };
+
+  const navPrivado = () => {
+    const token = localStorage.getItem("token");
+    return token ? true : false;
+  };
+
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (
@@ -36,21 +48,36 @@ const NavigationBar = () => {
                 ADOPTA
               </button>
             </Link>
-            <Link to="/iniciar_sesion" className="m-1 nav-login-button link">
-              <button className={`btn btn-dark ${activeButton === "iniciar_sesion" ? "active-nav" : ""}`} onClick={() => handleButtonClick("iniciar_sesion")}>
-                INICIAR SESIÓN
-              </button>
-            </Link>
-            <Link to="/crear_cuenta" className="m-1 nav-signup-button link">
-              <button className={`btn btn-dark ${activeButton === "crear_cuenta" ? "active-nav" : ""}`} onClick={() => handleButtonClick("crear_cuenta")}>
-                CREAR CUENTA
-              </button>
-            </Link>
-            <Link to="/perfil" className="m-1 nav-signup-button link">
-              <button className={`btn btn-dark ${activeButton === "perfil" ? "active-nav" : ""}`} onClick={() => handleButtonClick("perfil")}>
-                PERFIL
-              </button>
-            </Link>
+            {navPrivado() ? (
+              <>
+                <Link to="/perfil" className="m-1 nav-signup-button link">
+                  <button className={`btn btn-dark ${activeButton === "perfil" ? "active-nav" : ""}`} onClick={() => handleButtonClick("perfil")}>
+                    PERFIL
+                  </button>
+                </Link>
+                <Link to="/" className="m-1 nav-signup-button link">
+                  <button className={`btn btn-dark ${activeButton === "perfil" ? "active-nav" : ""}`} onClick={logout}>
+                    CERRAR SESION
+                  </button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to="/iniciar_sesion" className="m-1 nav-login-button link">
+                  <button
+                    className={`btn btn-dark ${activeButton === "iniciar_sesion" ? "active-nav" : ""}`}
+                    onClick={() => handleButtonClick("iniciar_sesion")}
+                  >
+                    INICIAR SESIÓN
+                  </button>
+                </Link>
+                <Link to="/crear_cuenta" className="m-1 nav-signup-button link">
+                  <button className={`btn btn-dark ${activeButton === "crear_cuenta" ? "active-nav" : ""}`} onClick={() => handleButtonClick("crear_cuenta")}>
+                    CREAR CUENTA
+                  </button>
+                </Link>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>

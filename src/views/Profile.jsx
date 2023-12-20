@@ -6,8 +6,15 @@ import fotoPerfil from "../assets/imgs/foto-perfil.jpg"; // Importa la imagen
 import CreatePost from "./CreatePost";
 import Favorites from "./Favorites";
 import MyPosts from "./MyPosts";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate = useNavigate();
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <div className="container-fluid">
       <div class="row">
@@ -22,7 +29,9 @@ const Profile = () => {
             </ul>
             <div className="btns-perfil mb-5">
               <Button className="btn-editarPerfil">Editar Perfil</Button>
-              <Button className="btn-cerrar-sesion">Cerrar Sesión</Button>
+              <Button className="btn-cerrar-sesion" onClick={logout}>
+                Cerrar Sesión
+              </Button>
             </div>
           </div>
         </div>
