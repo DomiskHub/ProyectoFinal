@@ -103,6 +103,11 @@ a {
 .card {
   width: 100%;
   height: auto;
+  /* user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none; */
 }
 
 .catcard-img {
@@ -186,6 +191,7 @@ a {
 .icon {
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 
 /* FAVORITES */
@@ -636,6 +642,12 @@ footer p {
     margin-right: 20px;
   }
 
+  .header-img {
+    height: 40vh;
+    object-fit: cover;
+    object-position: right;
+  }
+
   /* MEDIA GALLERY */
   .grid-container {
     grid-template-columns: 1fr;
@@ -741,6 +753,7 @@ footer p {
 }
 
 /* MEDIA QUERIES PARA TABLET */
+
 @media only screen and (min-width: 577px) and (max-width: 1024px) {
   /* MEDIA NAVBAR */
   .custom-navbar {
@@ -844,6 +857,7 @@ footer p {
 }
 
 /* MEDIA QUERIES PARA LAPTOP Y DESKTOP */
+
 @media only screen and (min-width: 1025px) {
   /* MEDIA NAVBAR */
   .custom-navbar {

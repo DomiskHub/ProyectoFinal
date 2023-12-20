@@ -1,30 +1,30 @@
-import React from 'react';
-import { Container, Form, Button, Card } from 'react-bootstrap';
+import React from "react";
+import { Container, Form, Button, Card } from "react-bootstrap";
 
 const SignUp = () => {
   return (
-    <Container className='signup-container'>
+    <Container className="signup-container">
       <Card className="signup-card mt-5">
         <Card.Body>
-            <h1>Crear mi cuenta</h1>
-          <Form className='form-sign-up'>
+          <h1>Crear mi cuenta</h1>
+          <Form className="form-sign-up">
             <Form.Group controlId="formFirstName" className="signup-input">
-            
               <Form.Control type="text" placeholder="Nombre *" />
             </Form.Group>
 
             <Form.Group controlId="formLastName" className="signup-input">
-            
+              <Form.Control type="text" placeholder="Apellidos *" />
+            </Form.Group>
+
+            <Form.Group controlId="formLastName" className="signup-input">
               <Form.Control type="text" placeholder="Apellidos *" />
             </Form.Group>
 
             <Form.Group controlId="formEmail" className="signup-input">
-            
               <Form.Control type="email" placeholder="Correo electronico *" />
             </Form.Group>
 
             <Form.Group controlId="formAddress" className="signup-input">
-            
               <Form.Control type="text" placeholder="Direccion *" />
             </Form.Group>
 

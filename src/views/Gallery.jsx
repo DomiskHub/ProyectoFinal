@@ -13,7 +13,14 @@ const Gallery = () => {
   const { cats, toggleFavoritePhoto } = useContext(GlobalContext);
   const navigate = useNavigate();
 
-  const filteredCats = cats.filter((cat) => cat.nombre.toLowerCase().includes(search.toLowerCase()));
+  const filteredCats = cats.filter((cat) =>
+    cat.nombre
+      // esto lee tildes :D
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase()
+      .includes(search.toLowerCase())
+  );
 
   return (
     <Container>
