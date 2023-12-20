@@ -2,7 +2,7 @@
   {
     "id": 1,
     "color": "Naranjo",
-    "nombre": "Simón",
+    "nombre": "Mauricio",
     "sexo": "Macho",
     "edad": "8 meses",
     "pelaje": "Pelo corto",
@@ -28,7 +28,7 @@
   {
     "id": 3,
     "color": "Atigrado",
-    "nombre": "Max",
+    "nombre": "Luca",
     "sexo": "Macho",
     "edad": 5,
     "pelaje": "Pelo Largo",

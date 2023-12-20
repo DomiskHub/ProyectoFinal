@@ -5,6 +5,7 @@ export const GlobalContext = createContext();
 const GlobalProvider = ({ children }) => {
   const [cats, setCats] = useState([]);
   const [favorites, setFavorites] = useState([]);
+
   const getData = async () => {
     try {
       const res = await fetch("cats.json");
@@ -15,7 +16,6 @@ const GlobalProvider = ({ children }) => {
       console.log("error");
     }
   };
-
   useEffect(() => {
     getData();
   }, []);
