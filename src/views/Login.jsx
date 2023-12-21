@@ -1,42 +1,22 @@
-import React from "react";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useContext, useState } from "react";
 import { Container, Form, Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { GlobalContext } from "../context/CardContext";
 
 const Login = () => {
   const navigate = useNavigate();
-
+  const { loginUser } = useContext(GlobalContext);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
-  const loginData = [
-    {
-      user: "usuario1",
-      password: "contraseña1",
-    },
-    {
-      user: "usuario2",
-      password: "contraseña2",
-    },
-    {
-      user: "usuario3",
-      password: "contraseña3",
-    },
-    {
-      user: "usuario4",
-      password: "contraseña4",
-    },
-  ];
-
-  const login = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
-
-    const usuarioFiltrado = loginData.find((usuario) => usuario.user === user);
-    console.log(usuarioFiltrado);
-
-    if (password === usuarioFiltrado.password) {
-      localStorage.setItem("token", "test_token_123456789");
+    const loggedIn = loginUser(user, password);
+    if (loggedIn) {
       navigate("/");
     } else {
       setError(true);
@@ -48,13 +28,16 @@ const Login = () => {
       <Card className="login-card mt-5 login-container">
         <h1>Iniciar Sesión</h1>
         <Card.Body>
-          <Form onSubmit={(e) => login(e)}>
+          <Form onSubmit={handleLogin}>
             <Form.Group controlId="formFirstName" className="login-input">
               <Form.Control type="text" placeholder="Usuario" value={user} onChange={(e) => setUser(e.target.value)} />
             </Form.Group>
 
-            <Form.Group controlId="formLastName" className="login-input">
-              <Form.Control type="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <Form.Group controlId="formLastName" className="login-input password-input">
+              <Form.Control type={showPassword ? "text" : "password"} placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
+              <div className="password-toggle-icon" onClick={() => setShowPassword(!showPassword)}>
+                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+              </div>
             </Form.Group>
 
             <div className="container-btn">
@@ -72,4 +55,5 @@ const Login = () => {
     </Container>
   );
 };
+
 export default Login;

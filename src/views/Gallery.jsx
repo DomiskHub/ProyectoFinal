@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/CardContext.jsx";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -10,12 +10,15 @@ import IconHeart from "../components/IconHeart.jsx";
 
 const Gallery = () => {
   const [search, setSearch] = useState("");
-  const { cats, toggleFavoritePhoto } = useContext(GlobalContext);
+  const { cats, toggleFavoritePhoto, isLoggedIn } = useContext(GlobalContext);
   const navigate = useNavigate();
+
+  if (!cats) {
+    return <div>Cargando gatos...</div>;
+  }
 
   const filteredCats = cats.filter((cat) =>
     cat.nombre
-      // esto lee tildes :D
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
@@ -34,9 +37,11 @@ const Gallery = () => {
         {filteredCats.map((cat, index) => (
           <Card className="text-center" key={index} style={{ width: "18rem" }}>
             <Card.Img className="catcard-img" variant="top" src={cat.imagen} />
-            <div className="icon" onClick={() => toggleFavoritePhoto(cat)}>
-              <IconHeart filled={cat.liked} />
-            </div>
+            {isLoggedIn && (
+              <div className="icon" onClick={() => toggleFavoritePhoto(cat)}>
+                <IconHeart filled={cat.liked} />
+              </div>
+            )}
             <Card.Body>
               <Card.Title>{cat.nombre}</Card.Title>
               <Card.Text></Card.Text>
@@ -56,7 +61,6 @@ const Gallery = () => {
                   <Link to="/adopta">
                     <Button className="button-card button-card-gallery">Adoptar</Button>
                   </Link>
-                  {/* //al boton mas info le hice la funcion directamente (funcion anonima) */}
                   <Button className="button-card" onClick={() => navigate(`/detalle-gato/${cat.id}`)}>
                     Mas info
                   </Button>

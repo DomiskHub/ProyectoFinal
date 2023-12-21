@@ -365,6 +365,16 @@ footer p {
   gap: 10px;
 }
 
+.password-input {
+  display: flex;
+  align-items: center;
+}
+
+.password-toggle-icon {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
 /* SignUp */
 
 .signup-container {
