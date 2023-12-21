@@ -31,14 +31,14 @@ const NavigationBar = () => {
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse className="justify-content-end " id="responsive-navbar-nav">
-          <Nav className="ml-md-auto  cat-links" style={{ flex: 1 }}>
-            <NavLink className="nav-link" activeClassName="active" exact to="/">
+          <Nav className="ml-md-auto cat-links">
+            <NavLink className="nav-link" to="/">
               HOME
             </NavLink>
-            <NavLink className="nav-link" activeClassName="active" to="/quienes_somos">
+            <NavLink className="nav-link" to="/quienes_somos">
               QUIENES SOMOS
             </NavLink>
-            <NavLink className="nav-link" activeClassName="active" to="/galeria">
+            <NavLink className="nav-link" to="/galeria">
               VER GALERÍA
             </NavLink>
           </Nav>
