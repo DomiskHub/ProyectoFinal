@@ -34,18 +34,51 @@ const DetailCard = () => {
         <>cargando</>
       ) : (
         <Card className="detail-card-dani">
-          <Card.Img className="cat-detail-img" variant="top" src={cat.imagen} />
-          <Card.Body>
-            <Card.Title>
-              <strong>{cat.nombre}</strong>
-            </Card.Title>
-            <Card.Text>{cat.descripcion}</Card.Text>
-            <div>
-            <Link to="/adopta">
-                  <Button className="button-card button-card-gallery">Adoptar</Button>
-              </Link>
+          <div className="row">
+            <div className="col-12 col-md-6">
+              <Card.Img className="img-fluid" variant="top" src={cat.imagen} />
             </div>
-          </Card.Body>
+            <div className="col-12 col-md-6">
+              <Card.Body className="d-flex flex-column justify-content-between h-100">
+                <div>
+                  <Card.Title className="mb-4 mt-4">
+                    <strong>{cat.nombre}</strong>
+                  </Card.Title>
+                  <Card.Text>
+                    <strong> Color: </strong>
+                    {cat.color}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Sexo: </strong>
+                    {cat.sexo}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Edad: </strong>
+                    {cat.edad}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Pelaje: </strong>
+                    {cat.pelaje}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Detalle: </strong>
+                    {cat.descripcion}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Ubicacion:</strong> {cat.ubicacion}
+                  </Card.Text>
+                  <Card.Text>
+                    <strong>Esterilizado:</strong> {cat.esterilizado}
+                  </Card.Text>
+                </div>
+                <div className="mt-auto">
+                  <Link to="/adopta">
+                    <Button className="button-card button-card-gallery mt-3">Adoptar</Button>
+                  </Link>
+                </div>
+              </Card.Body>
+            </div>
+          </div>
         </Card>
       )}
     </div>
