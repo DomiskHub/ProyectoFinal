@@ -17,7 +17,7 @@ const Profile = () => {
 
   return (
     <div className="container-fluid">
-      <div class="row">
+      <div className="row">
         <div className="col-lg-4 col-sm-12 boxDatos-miPerfil p-5">
           <div>
             <h1>Mi Perfil</h1>

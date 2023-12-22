@@ -42,6 +42,15 @@ const GlobalProvider = ({ children }) => {
     },
   ];
 
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
+    }
+  }, []);
+
   const loginUser = (username, pass) => {
     const usuarioFiltrado = loginData.find((usuario) => usuario.user === username);
     if (usuarioFiltrado && pass === usuarioFiltrado.password) {
@@ -53,9 +62,10 @@ const GlobalProvider = ({ children }) => {
     }
   };
 
-  const logoutUser = () => {
+  const logoutUser = (navigate) => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
+    navigate("/");
   };
 
   const toggleFavoritePhoto = (cat) => {

@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logoKaren from "../assets/imgs/logo-karen.svg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../context/CardContext";
 
 const NavigationBar = () => {
+  const navigate = useNavigate();
+  const { logoutUser } = useContext(GlobalContext);
   const [activeButton, setActiveButton] = useState("");
 
   const handleButtonClick = (buttonName) => {
@@ -15,12 +18,6 @@ const NavigationBar = () => {
   const navPrivado = () => {
     const token = localStorage.getItem("token");
     return token ? true : false;
-  };
-
-  const navigate = useNavigate();
-  const logout = () => {
-    localStorage.removeItem("token");
-    navigate("/");
   };
 
   return (
@@ -43,11 +40,13 @@ const NavigationBar = () => {
             </NavLink>
           </Nav>
           <Nav className="justify-content-end cat-links mt-2">
-            <Link to="/adopta" className="m-1 link">
-              <button className={`btn nav-adopt-button ${activeButton === "adopta" ? "active-nav" : ""}`} onClick={() => handleButtonClick("adopta")}>
-                ADOPTA
-              </button>
-            </Link>
+            {navPrivado() && ( // Verifica si el usuario ha iniciado sesión
+              <Link to="/adopta" className="m-1 link">
+                <button className={`btn nav-adopt-button ${activeButton === "adopta" ? "active-nav" : ""}`} onClick={() => handleButtonClick("adopta")}>
+                  ADOPTA
+                </button>
+              </Link>
+            )}
             {navPrivado() ? (
               <>
                 <Link to="/perfil" className="m-1 nav-signup-button link">
@@ -56,7 +55,7 @@ const NavigationBar = () => {
                   </button>
                 </Link>
                 <Link to="/" className="m-1 nav-signup-button link">
-                  <button className={`btn btn-dark ${activeButton === "perfil" ? "active-nav" : ""}`} onClick={logout}>
+                  <button className={`btn btn-dark ${activeButton === "perfil" ? "active-nav" : ""}`} onClick={() => logoutUser(navigate)}>
                     CERRAR SESION
                   </button>
                 </Link>

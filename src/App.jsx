@@ -26,7 +26,14 @@ function App() {
             <Route path="/quienes_somos" element={<AboutUs />} />
             <Route path="/galeria" element={<Gallery />} />
             <Route path="/detalle-gato/:id" element={<DetailCard />} />
-            <Route path="/adopta" element={<AdoptionForm />} />
+            <Route
+              path="/adopta"
+              element={
+                <ProtectedRoute>
+                  <AdoptionForm />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/iniciar_sesion" element={<Login />} />
             <Route path="/crear_cuenta" element={<SignUp />} />
             <Route path="/contacto" element={<Contact />} />

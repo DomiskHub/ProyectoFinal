@@ -34,9 +34,16 @@ const Login = () => {
             </Form.Group>
 
             <Form.Group controlId="formLastName" className="login-input password-input">
-              <Form.Control type={showPassword ? "text" : "password"} placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value)} />
-              <div className="password-toggle-icon" onClick={() => setShowPassword(!showPassword)}>
-                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+              <div className="password-container">
+                <Form.Control
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Contraseña"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <div className="password-toggle-icon" onClick={() => setShowPassword(!showPassword)}>
+                  <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
+                </div>
               </div>
             </Form.Group>
 

@@ -248,10 +248,9 @@ a {
 /* FORMULARIO DE ADOPCION */
 .container-style {
   background-color: #f9ae3b;
-  padding: 2.5rem;
   border-radius: 8px;
   margin: auto;
-  margin-bottom: 10%;
+
   width: 40%;
 }
 
@@ -265,7 +264,7 @@ a {
 
 .container-style h1 {
   text-align: center;
-  margin-bottom: 8%;
+  margin-top: 8%;
 }
 
 /* FOOTER  */
@@ -365,14 +364,25 @@ footer p {
   gap: 10px;
 }
 
-.password-input {
-  display: flex;
-  align-items: center;
-}
-
 .password-toggle-icon {
   margin-left: 5px;
   cursor: pointer;
+}
+
+.password-container {
+  position: relative;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.input-field {
+  width: 100%;
 }
 
 /* SignUp */
