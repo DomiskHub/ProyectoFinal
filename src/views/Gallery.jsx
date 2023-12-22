@@ -57,14 +57,20 @@ const Gallery = () => {
                 <strong>Edad:</strong> {cat.edad}
               </ListGroup.Item>
               <ListGroup.Item>
-                <div className="d-flex justify-content-center">
-                  <Link to="/adopta">
-                    <Button className="button-card button-card-gallery">Adoptar</Button>
-                  </Link>
+                {isLoggedIn ? (
+                  <div className="d-flex justify-content-between">
+                    <Link to="/adopta">
+                      <Button className="button-card button-card-gallery me-2">Adoptar</Button>{" "}
+                    </Link>
+                    <Button className="button-card" onClick={() => navigate(`/detalle-gato/${cat.id}`)}>
+                      Mas info
+                    </Button>
+                  </div>
+                ) : (
                   <Button className="button-card" onClick={() => navigate(`/detalle-gato/${cat.id}`)}>
                     Mas info
                   </Button>
-                </div>
+                )}
               </ListGroup.Item>
             </ListGroup>
           </Card>

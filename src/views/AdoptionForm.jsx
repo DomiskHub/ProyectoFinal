@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const AdoptionForm = () => {
@@ -14,6 +14,8 @@ const AdoptionForm = () => {
     hasOtherCats: "",
   });
 
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -24,12 +26,22 @@ const AdoptionForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    setShowSuccessMessage(true);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      rut: "",
+      email: "",
+      phoneNumber: "",
+      sterilization: "",
+      livingEnvironment: "",
+      hasOtherCats: "",
+    });
   };
 
   return (
     <div className="adoption-form">
-      <Container className={`mt-5 container-style`}>
+      <Container className={`mt-5 mb-5 py-5 container-style`}>
         <h1>Formulario de adopción</h1>
         <Row className="justify-content-md-center">
           <Col xs={12} md={8}>
@@ -178,6 +190,18 @@ const AdoptionForm = () => {
           </Col>
         </Row>
       </Container>
+      {/* Mensaje de éxito */}
+      {showSuccessMessage && (
+        <Container className="mt-4">
+          <Row className="justify-content-md-center">
+            <Col xs={12} md={8}>
+              <Alert variant="success" onClose={() => setShowSuccessMessage(false)} dismissible>
+                <p>Solicitud enviada con éxito, te contactaremos si eres candidato para adoptar.</p>
+              </Alert>
+            </Col>
+          </Row>
+        </Container>
+      )}
     </div>
   );
 };
