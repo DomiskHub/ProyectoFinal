@@ -10,6 +10,8 @@ import IconHeart from "../components/IconHeart.jsx";
 
 const Gallery = () => {
   const [search, setSearch] = useState("");
+  const [selectedSex, setSelectedSex] = useState("Todos");
+  const [selectedColor, setSelectedColor] = useState("Todos");
   const { cats, toggleFavoritePhoto, isLoggedIn } = useContext(GlobalContext);
   const navigate = useNavigate();
 
@@ -17,13 +19,18 @@ const Gallery = () => {
     return <div>Cargando gatos...</div>;
   }
 
-  const filteredCats = cats.filter((cat) =>
-    cat.nombre
+  const filteredCats = cats.filter((cat) => {
+    const isNameMatch = cat.nombre
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .toLowerCase()
-      .includes(search.toLowerCase())
-  );
+      .includes(search.toLowerCase());
+
+    const isSexMatch = selectedSex === "Todos" || cat.sexo === selectedSex;
+    const isColorMatch = selectedColor === "Todos" || cat.color === selectedColor;
+
+    return isNameMatch && isSexMatch && isColorMatch;
+  });
 
   return (
     <Container>
@@ -31,6 +38,19 @@ const Gallery = () => {
         <h1 className="m-4 text-center">Gatitos en adopción</h1>
         <div className="input-search">
           <input type="text" placeholder="Buscar por nombre..." value={search} onChange={(e) => setSearch(e.target.value)} className="m-2 p-2 input-style" />
+          <select value={selectedSex} onChange={(e) => setSelectedSex(e.target.value)} className="m-2 p-2 input-style">
+            <option value="Todos">Sexo</option>
+            <option value="Macho">Macho</option>
+            <option value="Hembra">Hembra</option>
+          </select>
+          <select value={selectedColor} onChange={(e) => setSelectedColor(e.target.value)} className="m-2 p-2 input-style">
+            <option value="Todos">Color</option>
+            <option value="Negro">Negro</option>
+            <option value="Blanco">Blanco</option>
+            <option value="Gris">Gris</option>
+            <option value="Calico">Calico</option>
+            <option value="Siames">Siames</option>
+          </select>
         </div>
       </div>
       <div className="grid-container">
