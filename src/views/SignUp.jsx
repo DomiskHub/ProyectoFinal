@@ -14,7 +14,7 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
-  const [isLoggedIn] = useState(true)
+
   const [error, setError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [passwordMatchError, setPasswordMatchError] = useState(false);
@@ -32,9 +32,9 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     const { firstName, lastName, username, email, address, password, confirmPassword } = campos;
-
+  
     if (!firstName || !lastName || !username || !email || !address || !password || !confirmPassword) {
       setError(true);
       return;
@@ -47,12 +47,15 @@ const SignUp = () => {
       setPasswordMatchError(true);
       return;
     }
-
-    // Llama al método submitForm del contexto para guardar los datos del usuario
-    await submitForm(campos);
-
-    // Después de crear la cuenta, navega automáticamente al perfil del usuario
-    navigate("/perfil");
+  
+    try {
+      // Llama al método submitForm del contexto para guardar los datos del usuario
+      await submitForm(campos);
+      navigate("/perfil"); // Mueve la redirección dentro del bloque try
+    } catch (error) {
+      // Manejo de errores, si es necesario
+      console.error("Error al enviar el formulario:", error);
+    }
   };
   return (
     <Container className="signup-container">
