@@ -40,6 +40,7 @@ const GlobalProvider = ({ children }) => {
 
   useEffect(() => {
     getData();
+
   }, []);
 
   useEffect(() => {
@@ -50,6 +51,29 @@ const GlobalProvider = ({ children }) => {
       setIsLoggedIn(false);
     }
   }, []);
+  useEffect(() => {
+    const savedLoginData = localStorage.getItem("loginData");
+    if (savedLoginData) {
+      setLoginData(JSON.parse(savedLoginData));
+    }
+  }, []); 
+
+  useEffect(() => {
+    localStorage.setItem("loginData", JSON.stringify(loginData));
+  }, [loginData]);
+
+  useEffect(() => {
+    const savedFormData = localStorage.getItem("formData");
+    if (savedFormData) {
+      setUserData(JSON.parse(savedFormData));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (userData) {
+      localStorage.setItem("formData", JSON.stringify(userData));
+    }
+  }, [userData]);
 
   const loginUser = (username, pass) => {
     if (userData && userData.user && userData.password) {
@@ -64,11 +88,14 @@ const GlobalProvider = ({ children }) => {
       if (usuarioFiltrado && pass === usuarioFiltrado.password) {
         localStorage.setItem("token", "test_token_123456789");
         setIsLoggedIn(true);
+        setUser(usuarioFiltrado);
         return true;
       }
     }
+  
     return false;
   };
+  
 
   const logoutUser = (navigate) => {
     localStorage.removeItem("token");
@@ -87,7 +114,7 @@ const GlobalProvider = ({ children }) => {
   const submitForm = (formData) => {
     console.log("Datos del formulario enviados:");
     setUserData(formData);
-    setIsLoggedIn(true);
+  setIsLoggedIn(true);
     setLoginData((prevLoginData) => [
       ...prevLoginData,
       {
