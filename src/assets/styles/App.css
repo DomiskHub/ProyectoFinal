@@ -1,12 +1,11 @@
-<<<<<<< HEAD
-=======
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
 
 * {
   font-family: "Roboto", sans-serif;
 }
 
->>>>>>> 4ebe5c140ca28c129224d87f8fb453e81a286a3d
+
 a {
   color: rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1));
   text-decoration: none;
@@ -969,7 +968,7 @@ footer p {
   .btns-perfil {
     width: 40%;
   }
-<<<<<<< HEAD
+
 
   .boxDatos-miPerfil {
     width: 35%;
@@ -980,6 +979,6 @@ footer p {
   }
 }
 
-=======
-}
->>>>>>> 4ebe5c140ca28c129224d87f8fb453e81a286a3d
+
+
+

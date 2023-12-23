@@ -6,24 +6,9 @@ const GlobalProvider = ({ children }) => {
   const [cats, setCats] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  // JSON
-  const getData = async () => {
-    try {
-      const res = await fetch("cats.json");
-      const json = await res.json();
-      setCats(json);
-    } catch (error) {
-      console.log("error");
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  // LOGIN TOKEN
-  const loginData = [
+  const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [loginData, setLoginData] = useState([
     {
       user: "usuario1",
       password: "contraseña1",
@@ -40,7 +25,22 @@ const GlobalProvider = ({ children }) => {
       user: "usuario4",
       password: "contraseña4",
     },
-  ];
+  ]);
+
+  // JSON
+  const getData = async () => {
+    try {
+      const res = await fetch("cats.json");
+      const json = await res.json();
+      setCats(json);
+    } catch (error) {
+      console.log("error");
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -52,14 +52,22 @@ const GlobalProvider = ({ children }) => {
   }, []);
 
   const loginUser = (username, pass) => {
-    const usuarioFiltrado = loginData.find((usuario) => usuario.user === username);
-    if (usuarioFiltrado && pass === usuarioFiltrado.password) {
-      localStorage.setItem("token", "test_token_123456789");
-      setIsLoggedIn(true);
-      return true;
+    if (userData && userData.user && userData.password) {
+      if (username === userData.user && pass === userData.password) {
+        localStorage.setItem("token", "test_token_123456789");
+        setIsLoggedIn(true);
+        setUser(userData);
+        return true;
+      }
     } else {
-      return false;
+      const usuarioFiltrado = loginData.find((usuario) => usuario.user === username);
+      if (usuarioFiltrado && pass === usuarioFiltrado.password) {
+        localStorage.setItem("token", "test_token_123456789");
+        setIsLoggedIn(true);
+        return true;
+      }
     }
+    return false;
   };
 
   const logoutUser = (navigate) => {
@@ -71,10 +79,41 @@ const GlobalProvider = ({ children }) => {
   const toggleFavoritePhoto = (cat) => {
     cat.liked = !cat.liked;
     const exist = favorites.includes(cat);
-    exist ? setFavorites(favorites.filter((favorite) => favorite.id !== cat.id)) : setFavorites([...favorites, cat]);
+    exist
+      ? setFavorites(favorites.filter((favorite) => favorite.id !== cat.id))
+      : setFavorites([...favorites, cat]);
   };
 
-  return <GlobalContext.Provider value={{ cats, toggleFavoritePhoto, favorites, loginUser, logoutUser, isLoggedIn }}>{children}</GlobalContext.Provider>;
+  const submitForm = (formData) => {
+    console.log("Datos del formulario enviados:");
+    setUserData(formData);
+    setIsLoggedIn(true);
+    setLoginData((prevLoginData) => [
+      ...prevLoginData,
+      {
+        user: formData.username,
+        password: formData.password,
+      },
+    ]);
+  };
+
+  return (
+    <GlobalContext.Provider
+      value={{
+        cats,
+        toggleFavoritePhoto,
+        favorites,
+        loginUser,
+        logoutUser,
+        isLoggedIn,
+        user,
+        submitForm,
+        userData,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
 };
 
 export default GlobalProvider;
