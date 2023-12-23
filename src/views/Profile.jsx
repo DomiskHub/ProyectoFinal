@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button } from "react-bootstrap";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
-import fotoPerfil from "../assets/imgs/foto-perfil.jpg"; // Importa la imagen
+import fotoPerfil from "../assets/imgs/foto-perfil.jpg";
 import CreatePost from "./CreatePost";
 import Favorites from "./Favorites";
 import MyPosts from "./MyPosts";
 import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../context/CardContext";
 
 const Profile = () => {
+  const { logoutUser, userData } = useContext(GlobalContext);
   const navigate = useNavigate();
+
   const logout = () => {
-    localStorage.removeItem("token");
+    logoutUser();
     navigate("/");
   };
 
@@ -23,9 +26,9 @@ const Profile = () => {
             <h1>Mi Perfil</h1>
             <img src={fotoPerfil} alt="Foto de perfil" className="img-fluid rounded-circle mb-5" />
             <ul>
-              <li>Nombre:</li>
-              <li>Dirección:</li>
-              <li>Correo:</li>
+              <li>Nombre: {userData?.firstName} {userData?.lastName}</li>
+              <li>Dirección: {userData?.address}</li>
+              <li>Correo: {userData?.email}</li>
             </ul>
             <div className="btns-perfil mb-5">
               <Button className="btn-editarPerfil">Editar Perfil</Button>

@@ -1,12 +1,14 @@
 import { Navigate } from "react-router-dom";
+import { useContext } from "react";
+import { GlobalContext } from "../context/CardContext";
 
 const ProtectedRoute = ({ children }) => {
-  const token = localStorage.getItem("token");
+  const { isLoggedIn, user } = useContext(GlobalContext);
 
-  if (token) {
+  if (isLoggedIn || user) {
     return children;
   } else {
-    return <Navigate to="/iniciar_sesion"></Navigate>;
+    return <Navigate to="/iniciar_sesion" />;
   }
 };
 
