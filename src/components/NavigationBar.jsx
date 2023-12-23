@@ -8,16 +8,11 @@ import { GlobalContext } from "../context/CardContext";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
-  const { logoutUser } = useContext(GlobalContext);
+  const { logoutUser, isLoggedIn } = useContext(GlobalContext);
   const [activeButton, setActiveButton] = useState("");
 
   const handleButtonClick = (buttonName) => {
     setActiveButton(buttonName);
-  };
-
-  const navPrivado = () => {
-    const token = localStorage.getItem("token");
-    return token ? true : false;
   };
 
   return (
@@ -40,14 +35,14 @@ const NavigationBar = () => {
             </NavLink>
           </Nav>
           <Nav className="justify-content-end cat-links mt-2">
-            {navPrivado() && ( // Verifica si el usuario ha iniciado sesión
+            {isLoggedIn && ( // Verifica si el usuario ha iniciado sesión
               <Link to="/adopta" className="m-1 link">
                 <button className={`btn nav-adopt-button ${activeButton === "adopta" ? "active-nav" : ""}`} onClick={() => handleButtonClick("adopta")}>
                   ADOPTA
                 </button>
               </Link>
             )}
-            {navPrivado() ? (
+            {isLoggedIn ? (
               <>
                 <Link to="/perfil" className="m-1 nav-signup-button link">
                   <button className={`btn btn-dark ${activeButton === "perfil" ? "active-nav" : ""}`} onClick={() => handleButtonClick("perfil")}>

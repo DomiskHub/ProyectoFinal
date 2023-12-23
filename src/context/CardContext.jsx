@@ -6,6 +6,8 @@ const GlobalProvider = ({ children }) => {
   const [cats, setCats] = useState(null);
   const [favorites, setFavorites] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
+  const [userData, setUserData] = useState(null);
 
   // JSON
   const getData = async () => {
@@ -52,7 +54,9 @@ const GlobalProvider = ({ children }) => {
   }, []);
 
   const loginUser = (username, pass) => {
-    const usuarioFiltrado = loginData.find((usuario) => usuario.user === username);
+    const usuarioFiltrado = loginData.find(
+      (usuario) => usuario.user === username
+    );
     if (usuarioFiltrado && pass === usuarioFiltrado.password) {
       localStorage.setItem("token", "test_token_123456789");
       setIsLoggedIn(true);
@@ -71,10 +75,33 @@ const GlobalProvider = ({ children }) => {
   const toggleFavoritePhoto = (cat) => {
     cat.liked = !cat.liked;
     const exist = favorites.includes(cat);
-    exist ? setFavorites(favorites.filter((favorite) => favorite.id !== cat.id)) : setFavorites([...favorites, cat]);
+    exist
+      ? setFavorites(favorites.filter((favorite) => favorite.id !== cat.id))
+      : setFavorites([...favorites, cat]);
+  };
+  const submitForm = (formData) => {
+    console.log("Datos del formulario enviados:");
+    setUserData(formData);
+    setIsLoggedIn(true);
   };
 
-  return <GlobalContext.Provider value={{ cats, toggleFavoritePhoto, favorites, loginUser, logoutUser, isLoggedIn }}>{children}</GlobalContext.Provider>;
+  return (
+    <GlobalContext.Provider
+      value={{
+        cats,
+        toggleFavoritePhoto,
+        favorites,
+        loginUser,
+        logoutUser,
+        isLoggedIn,
+        user,
+        submitForm,
+        userData,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
+  );
 };
 
 export default GlobalProvider;

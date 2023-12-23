@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Container, Form, Button, Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../context/CardContext";
 
 const SignUp = () => {
+  const { submitForm } = useContext(GlobalContext);
   const [campos, setCampos] = useState({
     firstName: "",
     lastName: "",
@@ -11,9 +14,11 @@ const SignUp = () => {
     password: "",
     confirmPassword: "",
   });
+  const [isLoggedIn] = useState(true)
   const [error, setError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [passwordMatchError, setPasswordMatchError] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { id, value } = e.target;
@@ -25,7 +30,7 @@ const SignUp = () => {
     setCampos({ ...campos, [id]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const { firstName, lastName, username, email, address, password, confirmPassword } = campos;
@@ -43,13 +48,12 @@ const SignUp = () => {
       return;
     }
 
-    submitForm(campos);
-  };
+    // Llama al método submitForm del contexto para guardar los datos del usuario
+    await submitForm(campos);
 
-  const submitForm = (data) => {
-    console.log("Datos del formulario enviados:", data);
+    // Después de crear la cuenta, navega automáticamente al perfil del usuario
+    navigate("/perfil");
   };
-
   return (
     <Container className="signup-container">
       <Card className="signup-card mt-5">
