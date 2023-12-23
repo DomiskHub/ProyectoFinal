@@ -5,6 +5,11 @@ import logoKaren from "../assets/imgs/logo-karen.svg";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/CardContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faArrowRightFromBracket, faCat, faHouse } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons"; 
+
+
 
 const NavigationBar = () => {
   const navigate = useNavigate();
@@ -25,7 +30,7 @@ const NavigationBar = () => {
         <Navbar.Collapse className="justify-content-end " id="responsive-navbar-nav">
           <Nav className="ml-md-auto cat-links">
             <NavLink className="nav-link" to="/">
-              HOME
+            <FontAwesomeIcon icon={faHouse} />  HOME
             </NavLink>
             <NavLink className="nav-link" to="/quienes_somos">
               QUIENES SOMOS
@@ -38,7 +43,7 @@ const NavigationBar = () => {
             {isLoggedIn && ( // Verifica si el usuario ha iniciado sesión
               <Link to="/adopta" className="m-1 link">
                 <button className={`btn nav-adopt-button ${activeButton === "adopta" ? "active-nav" : ""}`} onClick={() => handleButtonClick("adopta")}>
-                  ADOPTA
+                <FontAwesomeIcon icon={faCat} /> ADOPTA
                 </button>
               </Link>
             )}
@@ -46,13 +51,13 @@ const NavigationBar = () => {
               <>
                 <Link to="/perfil" className="m-1 nav-signup-button link">
                   <button className={`btn btn-dark ${activeButton === "perfil" ? "active-nav" : ""}`} onClick={() => handleButtonClick("perfil")}>
-                    PERFIL
+                  <FontAwesomeIcon icon={faUser} /> PERFIL
                   </button>
                 </Link>
                 <Link to="/" className="m-1 nav-signup-button link">
-                  <button className={`btn btn-dark ${activeButton === "perfil" ? "active-nav" : ""}`} onClick={() => logoutUser(navigate)}>
-                    CERRAR SESION
-                  </button>
+                  <div className={`btn-cerrar-sesion ${activeButton === "perfil" ? "" : ""}`} onClick={() => logoutUser(navigate)}>
+                  <FontAwesomeIcon icon={faArrowRightFromBracket} />
+                  </div>
                 </Link>
               </>
             ) : (

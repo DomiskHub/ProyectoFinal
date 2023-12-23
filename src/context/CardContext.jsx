@@ -97,6 +97,13 @@ const GlobalProvider = ({ children }) => {
     ]);
   };
 
+
+
+  const updateUserData = (newUserData) => {
+    setUserData(newUserData); //para guardar cambios cuando se edita el perfil
+  };
+
+
   return (
     <GlobalContext.Provider
       value={{
@@ -109,6 +116,7 @@ const GlobalProvider = ({ children }) => {
         user,
         submitForm,
         userData,
+        updateUserData,
       }}
     >
       {children}
