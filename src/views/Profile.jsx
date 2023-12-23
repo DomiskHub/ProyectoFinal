@@ -101,7 +101,7 @@ const Profile = () => {
                   Editar Perfil
                 </Button>
               )}
-              <Button className="btn-cerrar-sesion-boton" onClick={logout}>
+              <Button className="btn-cerrar-sesion-boton" onClick={() => logoutUser(navigate)}>
               <FontAwesomeIcon icon={faArrowRightFromBracket} /> Cerrar Sesión
               </Button>
             </div>
