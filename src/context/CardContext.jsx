@@ -7,9 +7,15 @@ const GlobalProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
-  const [posts, setPosts] = useState([]);
-  const [gallery, setGallery] = useState([]);
   const [userData, setUserData] = useState(null);
+  const [posts, setPosts] = useState(() => {
+    const savedPosts = localStorage.getItem('posts');
+    return savedPosts ? JSON.parse(savedPosts) : [];
+  });
+  const [gallery, setGallery] = useState(() => {
+    const savedGallery = localStorage.getItem('gallery');
+    return savedGallery ? JSON.parse(savedGallery) : [];
+  });
   const [loginData, setLoginData] = useState([
     {
       user: "usuario1",
@@ -34,12 +40,10 @@ const GlobalProvider = ({ children }) => {
   };
 
   const addToGallery = (post) => {
-    setGallery((prevGallery) => {
-      const updatedGallery = [...prevGallery, post];
-      localStorage.setItem('gallery', JSON.stringify(updatedGallery));
-      return updatedGallery;
-    });
+    console.log("Adding post to gallery:", post);
+    setGallery((prevGallery) => [...prevGallery, post]);
   };
+  
 
   // JSON
   const getData = async () => {
@@ -54,14 +58,15 @@ const GlobalProvider = ({ children }) => {
 
   useEffect(() => {
     getData();
+  }, []);
 
-  }, []);
   useEffect(() => {
-    const savedGallery = localStorage.getItem('gallery');
-    if (savedGallery) {
-      setGallery(JSON.parse(savedGallery));
-    }
-  }, []);
+    localStorage.setItem('posts', JSON.stringify(posts));
+  }, [posts]);
+
+  useEffect(() => {
+    console.log("Gallery updated:", gallery);
+  }, [gallery]);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -71,12 +76,13 @@ const GlobalProvider = ({ children }) => {
       setIsLoggedIn(false);
     }
   }, []);
+
   useEffect(() => {
     const savedLoginData = localStorage.getItem("loginData");
     if (savedLoginData) {
       setLoginData(JSON.parse(savedLoginData));
     }
-  }, []); 
+  }, []);
 
   useEffect(() => {
     localStorage.setItem("loginData", JSON.stringify(loginData));
@@ -135,7 +141,7 @@ const GlobalProvider = ({ children }) => {
     console.log("Datos del formulario enviados:");
     setUserData(formData);
     localStorage.setItem("token", "test_token_123456789");
-  setIsLoggedIn(true);
+    setIsLoggedIn(true);
     setLoginData((prevLoginData) => [
       ...prevLoginData,
       {
@@ -145,12 +151,9 @@ const GlobalProvider = ({ children }) => {
     ]);
   };
 
-
-
   const updateUserData = (newUserData) => {
     setUserData(newUserData); //para guardar cambios cuando se edita el perfil
   };
-
 
   return (
     <GlobalContext.Provider
@@ -177,4 +180,4 @@ const GlobalProvider = ({ children }) => {
   );
 };
 
-export default GlobalProvider;  
+export default GlobalProvider;

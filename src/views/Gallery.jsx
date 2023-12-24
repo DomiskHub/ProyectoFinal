@@ -12,7 +12,7 @@ const Gallery = () => {
   const [search, setSearch] = useState("");
   const [selectedSex, setSelectedSex] = useState("Todos");
   const [selectedColor, setSelectedColor] = useState("Todos");
-  const { cats, toggleFavoritePhoto, isLoggedIn } = useContext(GlobalContext);
+  const { cats, toggleFavoritePhoto, isLoggedIn, gallery } = useContext(GlobalContext);
   const navigate = useNavigate();
 
   if (!cats) {
@@ -31,6 +31,16 @@ const Gallery = () => {
 
     return isNameMatch && isSexMatch && isColorMatch;
   });
+
+  const galleryPosts = gallery.map((post, index) => (
+    <Card className="text-center" key={index} style={{ width: "18rem" }}>
+      <Card.Img className="catcard-img" variant="top" src={post.formPhoto} />
+      <Card.Body>
+        <Card.Title>{post.formFirstName}</Card.Title>
+        <Card.Text>{post.formDescrip}</Card.Text>
+      </Card.Body>
+    </Card>
+  ));
 
   return (
     <Container>
@@ -95,6 +105,7 @@ const Gallery = () => {
             </ListGroup>
           </Card>
         ))}
+        {galleryPosts}
       </div>
     </Container>
   );
