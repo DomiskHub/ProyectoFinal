@@ -7,6 +7,10 @@ const GlobalProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [profileImage, setProfileImage] = useState(() => {
+    const savedImage = localStorage.getItem('profileImage');
+    return savedImage ? savedImage : fotoPerfil;
+  });
   const [userData, setUserData] = useState(null);
   const [posts, setPosts] = useState(() => {
     const savedPosts = localStorage.getItem('posts');
@@ -55,6 +59,10 @@ const GlobalProvider = ({ children }) => {
       console.log("error");
     }
   };
+
+  useEffect(() => {
+    localStorage.setItem('profileImage', profileImage);
+  }, [profileImage]);
 
   useEffect(() => {
     getData();
@@ -172,7 +180,10 @@ const GlobalProvider = ({ children }) => {
         addPost,
         setPosts,
         addToGallery,
-        gallery
+        gallery,
+        profileImage,
+        setProfileImage,
+
       }}
     >
       {children}

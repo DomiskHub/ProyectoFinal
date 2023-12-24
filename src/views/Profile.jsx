@@ -12,11 +12,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 const Profile = () => {
-  const { logoutUser, userData, updateUserData, favorites } = useContext(GlobalContext);
+  const { logoutUser, userData, updateUserData,profileImage,setProfileImage} = useContext(GlobalContext);
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState({});
-  const [profileImage, setProfileImage] = useState(fotoPerfil);
+  
 
   useEffect(() => {
     const savedImage = localStorage.getItem('profileImage');
@@ -35,15 +35,16 @@ const Profile = () => {
     });
   };
 
-  const handleImageChange = (e) => {
-    if (e.target.files && e.target.files[0]) {
-      const imageFile = e.target.files[0];
-      const imageUrl = URL.createObjectURL(imageFile);
-      setProfileImage(imageUrl);
-      localStorage.setItem('profileImage', imageUrl);
-    }
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setProfileImage(reader.result);
+      localStorage.setItem('profileImage', reader.result);
+    };
+    reader.readAsDataURL(file);
   };
-
+  
   const handleSaveClick = () => {
     updateUserData(editedData);
     setIsEditing(false);
@@ -104,11 +105,8 @@ const Profile = () => {
                   onChange={handleInputChange}
                 />
                 <label>Foto de perfil:</label>
-                <input
-                  type="file"
-                  name="profilePicture"
-                  onChange={handleImageChange}
-                />
+                <img src={profileImage} alt="Profile" />
+    <input type="file" onChange={handleFileChange} />
 
                 <Button
                   className="btn-guardar-cambios"
