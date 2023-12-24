@@ -9,7 +9,7 @@ const Footer = () => (
     <div className="form-map">
       {/* formulario */}
       <div className="footer-form">
-        <h3>Contáctanos</h3>
+        <h3 id="footer">Contáctanos</h3>
         <Form>
           <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
             <Form.Control type="email" placeholder="E-mail  " />
