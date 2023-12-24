@@ -65,7 +65,7 @@ const GlobalProvider = ({ children }) => {
   }, [posts]);
 
   useEffect(() => {
-    console.log("Gallery updated:", gallery);
+    localStorage.setItem("gallery",JSON.stringify (gallery));
   }, [gallery]);
 
   useEffect(() => {
@@ -149,6 +149,8 @@ const GlobalProvider = ({ children }) => {
         password: formData.password,
       },
     ]);
+    setGallery([]);
+    setPosts([])
   };
 
   const updateUserData = (newUserData) => {
