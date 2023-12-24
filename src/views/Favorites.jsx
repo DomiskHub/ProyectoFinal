@@ -15,6 +15,8 @@ const Favorites = () => {
   const combinedArray = [...favorites];
 
   
+
+  
   
 
   return (

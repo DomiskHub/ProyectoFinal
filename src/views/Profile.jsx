@@ -106,7 +106,7 @@ const Profile = () => {
                 />
                 <label>Foto de perfil:</label>
                 <img src={profileImage} alt="Profile" />
-    <input type="file" onChange={handleFileChange} />
+                <input type="file" onChange={handleFileChange} />
 
                 <Button
                   className="btn-guardar-cambios"
