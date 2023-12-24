@@ -1,4 +1,4 @@
-import React, { useContext,useEffect, useState, } from "react";
+import React, { useContext, useState, } from "react";
 import { GlobalContext } from "../context/CardContext.jsx";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -12,7 +12,7 @@ const Gallery = () => {
   const [search, setSearch] = useState("");
   const [selectedSex, setSelectedSex] = useState("Todos");
   const [selectedColor, setSelectedColor] = useState("Todos");
-  const { cats, toggleFavoritePhoto, isLoggedIn, gallery , setGallery } = useContext(GlobalContext);
+  const { cats, toggleFavoritePhoto, isLoggedIn, gallery , setFavorites } = useContext(GlobalContext);
   const navigate = useNavigate();
 
   if (!cats) {

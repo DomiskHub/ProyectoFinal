@@ -1,12 +1,20 @@
 import React, { createContext, useEffect, useState } from "react";
+import fotoPerfil from "../assets/imgs/foto-perfil.jpg";
 
 export const GlobalContext = createContext();
 
 const GlobalProvider = ({ children }) => {
   const [cats, setCats] = useState(null);
-  const [favorites, setFavorites] = useState([]);
+  const [favorites, setFavorites] = useState(() => {
+    const savedFavorites = localStorage.getItem("favorites");
+    return savedFavorites ? JSON.parse(savedFavorites) : [];
+  });
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [profileImage, setProfileImage] = useState((fotoPerfil) => {
+    const savedImage = localStorage.getItem('profileImage');
+    return savedImage ? savedImage : fotoPerfil;
+  });
   const [userData, setUserData] = useState(null);
   const [posts, setPosts] = useState(() => {
     const savedPosts = localStorage.getItem('posts');
@@ -57,12 +65,23 @@ const GlobalProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    localStorage.setItem('profileImage', profileImage);
+  }, [profileImage]);
+
+  useEffect(() => {
     getData();
   }, []);
 
   useEffect(() => {
     localStorage.setItem('posts', JSON.stringify(posts));
   }, [posts]);
+  useEffect(() => {
+    localStorage.setItem('gallery', JSON.stringify(gallery));
+  }, [gallery]);
+  
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
 
 
 
@@ -125,6 +144,8 @@ const GlobalProvider = ({ children }) => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     navigate("/");
+    setProfileImage([])
+    setGallery([])
   };
 
   const toggleFavoritePhoto = (cat) => {
@@ -172,7 +193,11 @@ const GlobalProvider = ({ children }) => {
         addPost,
         setPosts,
         addToGallery,
-        gallery
+        setGallery,
+        gallery,
+        profileImage,
+        setProfileImage,
+
       }}
     >
       {children}
