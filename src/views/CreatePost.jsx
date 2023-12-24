@@ -1,24 +1,43 @@
 import React, { useState, useContext } from "react";
-import { Container, Form, Button, Card } from 'react-bootstrap';
+import { Container, Form, Button, Card, Toast } from "react-bootstrap";
 import { GlobalContext } from "../context/CardContext";
 import { useEffect } from "react";
 
 const CreatePost = () => {
   const { addPost } = useContext(GlobalContext);
-  const [crearPost, setCrearPost] = useState({
-    formFirstName: '',
-    formSexo: '',
-    formColor: '',
-    formEdad: '',
-    formPhoto: '',
-  });
+  const initialFormData = {
+    formFirstName: "",
+    formSexo: "",
+    formColor: "",
+    formEdad: "",
+    formDescripcion: "",
+    formPhoto: "",
+  };
+
+  const [crearPost, setCrearPost] = useState({ ...initialFormData });
+  const [error, setError] = useState(""); // Estado para manejar mensajes de error
+  const [showToast, setShowToast] = useState(false); // Estado para mostrar el Toast
+
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;
-    setCrearPost((prevCrearPost) => ({
-      ...prevCrearPost,
-      [id]: value,
-    }));
+    if (id === "formEdad") {
+      // Limitar la entrada a dos dígitos para la edad
+      const maxLength = 2;
+      const newValue = value.slice(0, maxLength);
+      setCrearPost((prevCrearPost) => ({
+        ...prevCrearPost,
+        [id]: newValue,
+      }));
+    } else {
+      setCrearPost((prevCrearPost) => ({
+        ...prevCrearPost,
+        [id]: id === "formColor" ? capitalizeFirstLetter(value.toLowerCase()) : value,
+      }));
+    }
   };
   const handleImageChange = (e) => {
     const { id, files } = e.target;
@@ -38,8 +57,23 @@ const CreatePost = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const uniquePost = { ...crearPost, id: new Date().getTime() };
     addPost(uniquePost);
+
+
+    // Validar campos obligatorios
+    if (!crearPost.formFirstName || !crearPost.formSexo || !crearPost.formColor || !crearPost.formEdad || !crearPost.formDescripcion || !crearPost.formPhoto) {
+      setError("Por favor, complete todos los campos.");
+      return;
+    }
+
+    const uniquePost = { ...crearPost, id: new Date().getTime() };
+    addPost(uniquePost);
+    setCrearPost({ ...initialFormData }); // Reiniciar los campos del formulario
+    setError(""); // Limpiar mensaje de error
+    setShowToast(true); // Mostrar el Toast
+
   };
 
   return (
@@ -49,6 +83,7 @@ const CreatePost = () => {
           <Card.Body>
             <h2>Formulario para crear publicación</h2>
             <Form className="form-crear-publicacion" onSubmit={handleSubmit}>
+
               <Form.Group
                 controlId="formFirstName"
                 className="create-post-input"
@@ -59,49 +94,77 @@ const CreatePost = () => {
                   value={crearPost.formFirstName}
                   onChange={handleInputChange}
                 />
-              </Form.Group>
 
+              <Form.Group controlId="formFirstName" className="create-post-input">
+                <Form.Control type="text" placeholder="Nombre del gato" value={crearPost.formFirstName} onChange={handleInputChange} required />
+
+              </Form.Group>
               <Form.Group controlId="formSexo" className="create-post-input">
-                <Form.Control
-                  type="text"
-                  placeholder="Sexo del gato *"
-                  value={crearPost.formSexo}
-                  onChange={handleInputChange}
-                />
+                <Form.Control as="select" value={crearPost.formSexo} onChange={handleInputChange} required>
+                  <option value="">Seleccionar sexo</option>
+                  <option value="Macho">Macho</option>
+                  <option value="Hembra">Hembra</option>
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlId="formColor" className="create-post-input">
+                <Form.Control as="select" className="input-adoption-form" name="color" value={initialFormData.color} onChange={handleInputChange} required>
+                  <option value="">Seleccionar color</option>
+                  <option value="negro">Negro</option>
+                  <option value="blanco">Blanco</option>
+                  <option value="gris">Gris</option>
+                  <option value="calico">Calico</option>
+                  <option value="siames">Siames</option>
+                  <option value="otro">Otro</option>
+                </Form.Control>
               </Form.Group>
 
-              <Form.Group controlId="formColor" className="create-post-input">
-                <Form.Control
-                  type="text"
-                  placeholder="Color del gato*"
-                  value={crearPost.formColor}
-                  onChange={handleInputChange}
-                />
-              </Form.Group>
 
               <Form.Group
                 controlId="formEdad"
                 className="create-post-input input-descripcion"
               >
+
+              <Form.Group controlId="formEdad" className="create-post-input">
+
                 <Form.Control
-                  type="text"
-                  as="textarea"
-                  rows={3}
-                  placeholder="Edad del gato*"
+                  type="number"
+                  placeholder="Edad del gato"
                   value={crearPost.formEdad}
                   onChange={handleInputChange}
+                  required
+                  inputMode="numeric"
+                  min="0"
+                  max="99"
                 />
               </Form.Group>
-
-              <Form.Group controlId="formPhoto" className="create-post-input">
-                <Form.Control type="file" onChange={handleImageChange} />
+              <Form.Group controlId="formDescripcion" className="create-post-input">
+                <Form.Control as="textarea" placeholder="Descripción" value={crearPost.formDescripcion} onChange={handleInputChange} required />
               </Form.Group>
+              <Form.Group controlId="formPhoto" className="create-post-input">
 
+                <Form.Control type="file" onChange={handleImageChange} />
+
+                <Form.Control type="text" placeholder="URL de la foto" value={crearPost.formPhoto} onChange={handleInputChange} required />
+
+              </Form.Group>
               <div className="container-btn">
                 <Button className="btn-footer" type="submit">
                   Publicar
                 </Button>
               </div>
+              {error && <p style={{ color: "red" }}>{error}</p>} {/* Mostrar mensaje de error si existe */}
+              <Toast
+                show={showToast}
+                onClose={() => setShowToast(false)}
+                autohide
+                delay={3000}
+                style={{ position: "fixed", top: "20px", left: "50%", transform: "translateX(-50%)", zIndex: 1 }}
+              >
+                <Toast.Header>
+                  <strong className="me-auto">Publicación</strong>
+                </Toast.Header>
+                <Toast.Body>Publicación creada con éxito</Toast.Body>
+              </Toast>
             </Form>
           </Card.Body>
         </Card>

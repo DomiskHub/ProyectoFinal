@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Form, Button, Container, Row, Col, Alert } from "react-bootstrap";
+import { Form, Button, Container, Row, Col, Toast } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const AdoptionForm = () => {
-  const [formData, setFormData] = useState({
+  const initialFormData = {
     firstName: "",
     lastName: "",
     rut: "",
@@ -12,31 +12,72 @@ const AdoptionForm = () => {
     sterilization: "",
     livingEnvironment: "",
     hasOtherCats: "",
-  });
+  };
 
+  const [formData, setFormData] = useState(initialFormData);
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [rutError, setRutError] = useState(false); // Nuevo estado para el error del RUT
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    if (name === "rut" && !/^[0-9-]*$/.test(value)) {
+      return;
+    }
+    // Agregar guion al RUT después del octavo dígito, "name" es el rut
+    if (name === "rut" && value.length === 8) {
+      setFormData({
+        ...formData,
+        [name]: value + "-",
+      });
+      return;
+    }
+
     setFormData({
       ...formData,
       [name]: value,
     });
   };
 
+  // Función para validar el RUT :(
+  const validateRut = (rut) => {
+    if (!rut || rut.trim() === "") {
+      return false;
+    }
+
+    const cleanRut = rut.replace(/\./g, "").replace(/-/g, "").toUpperCase();
+    const rutDigits = cleanRut.slice(0, -1); // digitos del rurt
+    const rutVerifier = cleanRut.slice(-1); // digito verificador
+    const rutLength = rutDigits.length;
+
+    if (rutLength < 7 || rutLength > 8) {
+      return false; // largo invalido  del RUT
+    }
+
+    let sum = 0;
+    let multiplier = 2;
+
+    // Recorrer el rut de derecha a izquierda para calcular el dígito verificador
+    for (let i = rutDigits.length - 1; i >= 0; i--) {
+      sum += parseInt(rutDigits.charAt(i)) * multiplier;
+      multiplier = multiplier === 7 ? 2 : multiplier + 1;
+    }
+
+    const expectedVerifier = 11 - (sum % 11);
+    const verifier = expectedVerifier === 11 ? "0" : expectedVerifier === 10 ? "K" : expectedVerifier.toString();
+
+    return verifier === rutVerifier;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!validateRut(formData.rut)) {
+      setRutError(true);
+      return;
+    }
     setShowSuccessMessage(true);
-    setFormData({
-      firstName: "",
-      lastName: "",
-      rut: "",
-      email: "",
-      phoneNumber: "",
-      sterilization: "",
-      livingEnvironment: "",
-      hasOtherCats: "",
-    });
+    // Reiniciar form
+    setFormData(initialFormData);
+    setRutError(false);
   };
 
   return (
@@ -77,12 +118,13 @@ const AdoptionForm = () => {
                 <Form.Control
                   className="input-adoption-form"
                   type="text"
-                  placeholder="Ingresa tu RUT"
+                  placeholder="Ingresa tu RUT, sin puntos y con guión"
                   name="rut"
                   value={formData.rut}
                   onChange={handleInputChange}
                   required
                 />
+                {rutError && <p className="error-message">Por favor, completa el campo del RUT.</p>}
               </Form.Group>
 
               <Form.Group controlId="formEmail">
@@ -190,14 +232,23 @@ const AdoptionForm = () => {
           </Col>
         </Row>
       </Container>
-      {/* Mensaje de éxito */}
+      {/* toast*/}
       {showSuccessMessage && (
         <Container className="mt-4">
           <Row className="justify-content-md-center">
             <Col xs={12} md={8}>
-              <Alert variant="success" onClose={() => setShowSuccessMessage(false)} dismissible>
-                <p>Solicitud enviada con éxito, te contactaremos si eres candidato para adoptar.</p>
-              </Alert>
+              <Toast
+                show={showSuccessMessage}
+                onClose={() => setShowSuccessMessage(false)}
+                autohide
+                delay={3000}
+                style={{ position: "fixed", top: "20px", left: "50%", transform: "translateX(-50%)", zIndex: 1 }}
+              >
+                <Toast.Header>
+                  <strong className="me-auto">Éxito</strong>
+                </Toast.Header>
+                <Toast.Body>Solicitud enviada con éxito, te contactaremos si eres candidato para adoptar.</Toast.Body>
+              </Toast>
             </Col>
           </Row>
         </Container>
