@@ -19,9 +19,11 @@ const Profile = () => {
   const [profileImage, setProfileImage] = useState(fotoPerfil);
 
   useEffect(() => {
-    // Save favorites to localStorage whenever it changes
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }, [favorites]);
+    const savedImage = localStorage.getItem('profileImage');
+    if (savedImage) {
+      setProfileImage(savedImage);
+    }
+  }, []);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -33,8 +35,17 @@ const Profile = () => {
     });
   };
 
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      const imageFile = e.target.files[0];
+      const imageUrl = URL.createObjectURL(imageFile);
+      setProfileImage(imageUrl);
+      localStorage.setItem('profileImage', imageUrl);
+    }
+  };
+
   const handleSaveClick = () => {
-    updateUserData(editedData); // Esta funcion actualiza los datos del usuario en el context
+    updateUserData(editedData);
     setIsEditing(false);
   };
 
@@ -54,22 +65,55 @@ const Profile = () => {
         <div className="col-lg-4 col-sm-12 boxDatos-miPerfil p-5">
           <div>
             <h1>Mi Perfil</h1>
-            <img src={fotoPerfil} alt="Foto de perfil" className="img-fluid rounded-circle mb-5" />
+            <img
+              src={profileImage}
+              alt="Foto de perfil"
+              className="img-fluid rounded-circle mb-5"
+            />
             {isEditing ? (
               <form className="editar-perfil-form">
                 <label>Nombre:</label>
-                <input type="text" name="firstName" value={editedData.firstName} onChange={handleInputChange} />
+                <input
+                  type="text"
+                  name="firstName"
+                  value={editedData.firstName}
+                  onChange={handleInputChange}
+                />
 
                 <label>Apellido:</label>
-                <input type="text" name="lastName" value={editedData.lastName} onChange={handleInputChange} />
+                <input
+                  type="text"
+                  name="lastName"
+                  value={editedData.lastName}
+                  onChange={handleInputChange}
+                />
 
                 <label>Dirección:</label>
-                <input type="text" name="address" value={editedData.address} onChange={handleInputChange} />
+                <input
+                  type="text"
+                  name="address"
+                  value={editedData.address}
+                  onChange={handleInputChange}
+                />
 
                 <label>Correo:</label>
-                <input type="email" name="email" value={editedData.email} onChange={handleInputChange} />
+                <input
+                  type="email"
+                  name="email"
+                  value={editedData.email}
+                  onChange={handleInputChange}
+                />
+                <label>Foto de perfil:</label>
+                <input
+                  type="file"
+                  name="profilePicture"
+                  onChange={handleImageChange}
+                />
 
-                <Button className="btn-guardar-cambios" onClick={handleSaveClick}>
+                <Button
+                  className="btn-guardar-cambios"
+                  onClick={handleSaveClick}
+                >
                   Guardar Cambios
                 </Button>
               </form>
@@ -88,7 +132,10 @@ const Profile = () => {
                   Editar Perfil
                 </Button>
               )}
-              <Button className="btn-cerrar-sesion-boton" onClick={() => logoutUser(navigate)}>
+              <Button
+                className="btn-cerrar-sesion-boton"
+                onClick={() => logoutUser(navigate)}
+              >
                 <FontAwesomeIcon icon={faArrowRightFromBracket} /> Cerrar Sesión
               </Button>
             </div>
@@ -96,14 +143,30 @@ const Profile = () => {
         </div>
         <div className="col-lg-8 col-sm-12 p-5">
           <div className="tab-Profile1">
-            <Tabs defaultActiveKey="Mis Publicaciones" id="uncontrolled-tab-example" className="mb-3">
-              <Tab className="text-center mt-5" eventKey="Mis Publicaciones" title="Mis Publicaciones">
+            <Tabs
+              defaultActiveKey="Mis Publicaciones"
+              id="uncontrolled-tab-example"
+              className="mb-3"
+            >
+              <Tab
+                className="text-center mt-5"
+                eventKey="Mis Publicaciones"
+                title="Mis Publicaciones"
+              >
                 Mis Publicaciones <MyPosts />
               </Tab>
-              <Tab className="text-center mt-5" eventKey="Dar en Adopción" title="Dar en Adopción">
+              <Tab
+                className="text-center mt-5"
+                eventKey="Dar en Adopción"
+                title="Dar en Adopción"
+              >
                 Crear publicación <CreatePost />
               </Tab>
-              <Tab className="text-center mt-5" eventKey="Favoritos" title="Favoritos">
+              <Tab
+                className="text-center mt-5"
+                eventKey="Favoritos"
+                title="Favoritos"
+              >
                 <strong>Gatos Favoritos</strong>
                 <Favorites />
               </Tab>
