@@ -6,9 +6,9 @@ const CreatePost = () => {
   const { addPost } = useContext(GlobalContext);
   const [crearPost, setCrearPost] = useState({
     formFirstName: '',
-    formLastName: '',
-    formEmail: '',
-    formDescrip: '',
+    formSexo: '',
+    formColor: '',
+    formEdad: '',
     formPhoto: '',
   });
 
@@ -44,31 +44,31 @@ const CreatePost = () => {
                 />
               </Form.Group>
 
-              <Form.Group controlId="formLastName" className="create-post-input">
+              <Form.Group controlId="formSexo" className="create-post-input">
                 <Form.Control
                   type="text"
-                  placeholder="Edad del gato *"
-                  value={crearPost.formLastName}
+                  placeholder="Sexo del gato *"
+                  value={crearPost.formSexo}
                   onChange={handleInputChange}
                 />
               </Form.Group>
 
-              <Form.Group controlId="formEmail" className="create-post-input">
+              <Form.Group controlId="formColor" className="create-post-input">
                 <Form.Control
                   type="text"
-                  placeholder="Sexo del gato*"
-                  value={crearPost.formEmail}
+                  placeholder="Color del gato*"
+                  value={crearPost.formColor}
                   onChange={handleInputChange}
                 />
               </Form.Group>
 
-              <Form.Group controlId="formDescrip" className="create-post-input input-descripcion">
+              <Form.Group controlId="formEdad" className="create-post-input input-descripcion">
                 <Form.Control
                   type="text"
                   as="textarea"
                   rows={3}
-                  placeholder="Descripcion*"
-                  value={crearPost.formDescrip}
+                  placeholder="Edad del gato*"
+                  value={crearPost.formEdad}
                   onChange={handleInputChange}
                 />
               </Form.Group>

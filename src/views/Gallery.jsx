@@ -31,21 +31,51 @@ const Gallery = () => {
 
     return isNameMatch && isSexMatch && isColorMatch;
   });
-  const handleDelete = (postId) => {
-    setGallery((prevGallery) => prevGallery.filter((post) => post.id !== postId));
+  const handleDelete = (indexToRemove) => {
+    setGallery((prevGallery) => prevGallery.filter((_, index) => index !== indexToRemove));
   };
-
+  
   const galleryPosts = gallery.map((post, index) => (
     <Card className="text-center" key={index} style={{ width: "18rem" }}>
       <Card.Img className="catcard-img" variant="top" src={post.formPhoto} />
+      {isLoggedIn && (
+        <div className="icon" onClick={() => toggleFavoritePhoto(post)}>
+          <IconHeart filled={post.liked} />
+        </div>
+      )}
       <Card.Body>
         <Card.Title>{post.formFirstName}</Card.Title>
-        <Card.Text>{post.formDescrip}</Card.Text>
-        <Button variant="danger" onClick={() => handleDelete(post.id)}>Borrar</Button>
       </Card.Body>
+      <ListGroup className="list-group-flush">
+        <ListGroup.Item>
+          <strong>Sexo:</strong> {post.formSexo}
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <strong>Color:</strong> {post.formColor}
+        </ListGroup.Item>
+        <ListGroup.Item>
+          <strong>Edad:</strong> {post.formEdad}
+        </ListGroup.Item>
+        <ListGroup.Item>
+          {isLoggedIn ? (
+            <div className="d-flex justify-content-between">
+              <Link to="/adopta">
+                <Button className="button-card button-card-gallery me-2">Adoptar</Button>{" "}
+              </Link>
+              <Button className="button-card" onClick={() => navigate(`/detalle-gato/${post.id}`)}>
+                Mas info
+              </Button>
+            </div>
+          ) : (
+            <Button className="button-card" onClick={() => navigate(`/detalle-gato/${post.id}`)}>
+              Mas info
+            </Button>
+          )}
+        </ListGroup.Item>
+      </ListGroup>
     </Card>
   ));
-
+  
   return (
     <Container>
       <div>
