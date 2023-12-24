@@ -35,7 +35,7 @@ const CreatePost = () => {
     } else {
       setCrearPost((prevCrearPost) => ({
         ...prevCrearPost,
-        [id]: id === "formColor" ? capitalizeFirstLetter(value.toLowerCase()) : value,
+        [id]: value,
       }));
     }
   };
