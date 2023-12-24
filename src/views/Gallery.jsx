@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext,useEffect, useState, } from "react";
 import { GlobalContext } from "../context/CardContext.jsx";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -19,6 +19,7 @@ const Gallery = () => {
     return <div>Cargando gatos...</div>;
   }
 
+
   const filteredCats = cats.filter((cat) => {
     const isNameMatch = cat.nombre
       .normalize("NFD")
@@ -31,10 +32,6 @@ const Gallery = () => {
 
     return isNameMatch && isSexMatch && isColorMatch;
   });
-  const handleDelete = (indexToRemove) => {
-    setGallery((prevGallery) => prevGallery.filter((_, index) => index !== indexToRemove));
-  };
-  
   const galleryPosts = gallery.map((post, index) => (
     <Card className="text-center" key={index} style={{ width: "18rem" }}>
       <Card.Img className="catcard-img" variant="top" src={post.formPhoto} />

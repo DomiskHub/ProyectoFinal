@@ -16,7 +16,7 @@ const MyPosts = () => {
     <div className="grid-container">
       {posts.map((post, index) => (
         <Card className="text-center" key={index} style={{ width: "18rem" }}>
-          <Card.Img className="catcard-img" variant="top" src={post.formPhoto} />
+        <Card.Img className="catcard-img" variant="top" src={post.formPhoto instanceof File ? URL.createObjectURL(post.formPhoto) : post.formPhoto} />
           <Card.Body>
             <Card.Title>{post.formFirstName}</Card.Title>
             <Card.Text>{post.formDescrip}</Card.Text>

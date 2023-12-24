@@ -64,9 +64,7 @@ const GlobalProvider = ({ children }) => {
     localStorage.setItem('posts', JSON.stringify(posts));
   }, [posts]);
 
-  useEffect(() => {
-    localStorage.setItem("gallery",JSON.stringify (gallery));
-  }, [gallery]);
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");

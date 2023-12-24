@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -9,14 +9,19 @@ import MyPosts from "./MyPosts";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/CardContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {faArrowRightFromBracket} from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 const Profile = () => {
-  const { logoutUser, userData, updateUserData } = useContext(GlobalContext);
+  const { logoutUser, userData, updateUserData, favorites } = useContext(GlobalContext);
   const navigate = useNavigate();
   const [isEditing, setIsEditing] = useState(false);
   const [editedData, setEditedData] = useState({});
-  const [profileImage, setProfileImage] = useState(fotoPerfil); // fotoPerfil es la  foto por defecto
+  const [profileImage, setProfileImage] = useState(fotoPerfil);
+
+  useEffect(() => {
+    // Save favorites to localStorage whenever it changes
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   const handleEditClick = () => {
     setIsEditing(true);
@@ -24,7 +29,7 @@ const Profile = () => {
       firstName: userData?.firstName,
       lastName: userData?.lastName,
       address: userData?.address,
-      email: userData?.email, 
+      email: userData?.email,
     });
   };
 
@@ -53,44 +58,26 @@ const Profile = () => {
             {isEditing ? (
               <form className="editar-perfil-form">
                 <label>Nombre:</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={editedData.firstName}
-                    onChange={handleInputChange}
-                  />
-                
+                <input type="text" name="firstName" value={editedData.firstName} onChange={handleInputChange} />
+
                 <label>Apellido:</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    value={editedData.lastName}
-                    onChange={handleInputChange}
-                  />
-                
+                <input type="text" name="lastName" value={editedData.lastName} onChange={handleInputChange} />
+
                 <label>Dirección:</label>
-                  <input
-                    type="text"
-                    name="address"
-                    value={editedData.address}
-                    onChange={handleInputChange}
-                  />
-                
+                <input type="text" name="address" value={editedData.address} onChange={handleInputChange} />
+
                 <label>Correo:</label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={editedData.email}
-                    onChange={handleInputChange}
-                  />
-                
+                <input type="email" name="email" value={editedData.email} onChange={handleInputChange} />
+
                 <Button className="btn-guardar-cambios" onClick={handleSaveClick}>
                   Guardar Cambios
                 </Button>
               </form>
             ) : (
               <ul>
-                <li>Nombre: {userData?.firstName} {userData?.lastName}</li>
+                <li>
+                  Nombre: {userData?.firstName} {userData?.lastName}
+                </li>
                 <li>Dirección: {userData?.address}</li>
                 <li>Correo: {userData?.email}</li>
               </ul>
@@ -102,7 +89,7 @@ const Profile = () => {
                 </Button>
               )}
               <Button className="btn-cerrar-sesion-boton" onClick={() => logoutUser(navigate)}>
-              <FontAwesomeIcon icon={faArrowRightFromBracket} /> Cerrar Sesión
+                <FontAwesomeIcon icon={faArrowRightFromBracket} /> Cerrar Sesión
               </Button>
             </div>
           </div>
