@@ -7,6 +7,8 @@ const GlobalProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [user, setUser] = useState(null);
+  const [posts, setPosts] = useState([]);
+  const [gallery, setGallery] = useState([]);
   const [userData, setUserData] = useState(null);
   const [loginData, setLoginData] = useState([
     {
@@ -27,6 +29,18 @@ const GlobalProvider = ({ children }) => {
     },
   ]);
 
+  const addPost = (post) => {
+    setPosts((prevPosts) => [...prevPosts, post]);
+  };
+
+  const addToGallery = (post) => {
+    setGallery((prevGallery) => {
+      const updatedGallery = [...prevGallery, post];
+      localStorage.setItem('gallery', JSON.stringify(updatedGallery));
+      return updatedGallery;
+    });
+  };
+
   // JSON
   const getData = async () => {
     try {
@@ -41,6 +55,12 @@ const GlobalProvider = ({ children }) => {
   useEffect(() => {
     getData();
 
+  }, []);
+  useEffect(() => {
+    const savedGallery = localStorage.getItem('gallery');
+    if (savedGallery) {
+      setGallery(JSON.parse(savedGallery));
+    }
   }, []);
 
   useEffect(() => {
@@ -145,6 +165,11 @@ const GlobalProvider = ({ children }) => {
         submitForm,
         userData,
         updateUserData,
+        posts,
+        addPost,
+        setPosts,
+        addToGallery,
+        gallery
       }}
     >
       {children}
@@ -152,4 +177,4 @@ const GlobalProvider = ({ children }) => {
   );
 };
 
-export default GlobalProvider;
+export default GlobalProvider;  

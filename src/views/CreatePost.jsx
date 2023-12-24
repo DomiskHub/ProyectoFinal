@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from "react";
 import { Container, Form, Button, Card } from 'react-bootstrap';
+import { GlobalContext } from "../context/CardContext";
 
-const CreatePost = ({ onSubmit }) => {
+const CreatePost = () => {
+  const { addPost } = useContext(GlobalContext);
   const [crearPost, setCrearPost] = useState({
     formFirstName: '',
     formLastName: '',
@@ -20,7 +22,10 @@ const CreatePost = ({ onSubmit }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(crearPost);
+    // Asegúrate de que cada post tenga un id único
+    const uniquePost = { ...crearPost, id: new Date().getTime() };
+    addPost(uniquePost);
+    // Limpiar el estado del formulario si es necesario
   };
 
   return (
