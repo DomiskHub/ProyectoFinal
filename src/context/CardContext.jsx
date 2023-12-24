@@ -114,6 +114,7 @@ const GlobalProvider = ({ children }) => {
   const submitForm = (formData) => {
     console.log("Datos del formulario enviados:");
     setUserData(formData);
+    localStorage.setItem("token", "test_token_123456789");
   setIsLoggedIn(true);
     setLoginData((prevLoginData) => [
       ...prevLoginData,
