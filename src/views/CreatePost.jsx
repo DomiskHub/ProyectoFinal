@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Container, Form, Button, Card, Toast } from "react-bootstrap";
 import { GlobalContext } from "../context/CardContext";
+import { useEffect } from "react";
 
 const CreatePost = () => {
   const { addPost } = useContext(GlobalContext);
@@ -38,9 +39,28 @@ const CreatePost = () => {
       }));
     }
   };
+  const handleImageChange = (e) => {
+    const { id, files } = e.target;
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setCrearPost((prevCrearPost) => ({
+        ...prevCrearPost,
+        [id]: reader.result,
+      }));
+    };
+    reader.readAsDataURL(files[0]);
+  };
+  
+  useEffect(() => {
+    localStorage.setItem('formPhoto', crearPost.formPhoto);
+  }, [crearPost.formPhoto]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const uniquePost = { ...crearPost, id: new Date().getTime() };
+    addPost(uniquePost);
+
 
     // Validar campos obligatorios
     if (!crearPost.formFirstName || !crearPost.formSexo || !crearPost.formColor || !crearPost.formEdad || !crearPost.formDescripcion || !crearPost.formPhoto) {
@@ -53,6 +73,7 @@ const CreatePost = () => {
     setCrearPost({ ...initialFormData }); // Reiniciar los campos del formulario
     setError(""); // Limpiar mensaje de error
     setShowToast(true); // Mostrar el Toast
+
   };
 
   return (
@@ -62,8 +83,21 @@ const CreatePost = () => {
           <Card.Body>
             <h2>Formulario para crear publicación</h2>
             <Form className="form-crear-publicacion" onSubmit={handleSubmit}>
+
+              <Form.Group
+                controlId="formFirstName"
+                className="create-post-input"
+              >
+                <Form.Control
+                  type="text"
+                  placeholder="Nombre del gato *"
+                  value={crearPost.formFirstName}
+                  onChange={handleInputChange}
+                />
+
               <Form.Group controlId="formFirstName" className="create-post-input">
                 <Form.Control type="text" placeholder="Nombre del gato" value={crearPost.formFirstName} onChange={handleInputChange} required />
+
               </Form.Group>
               <Form.Group controlId="formSexo" className="create-post-input">
                 <Form.Control as="select" value={crearPost.formSexo} onChange={handleInputChange} required>
@@ -83,7 +117,15 @@ const CreatePost = () => {
                   <option value="otro">Otro</option>
                 </Form.Control>
               </Form.Group>
+
+
+              <Form.Group
+                controlId="formEdad"
+                className="create-post-input input-descripcion"
+              >
+
               <Form.Group controlId="formEdad" className="create-post-input">
+
                 <Form.Control
                   type="number"
                   placeholder="Edad del gato"
@@ -99,7 +141,11 @@ const CreatePost = () => {
                 <Form.Control as="textarea" placeholder="Descripción" value={crearPost.formDescripcion} onChange={handleInputChange} required />
               </Form.Group>
               <Form.Group controlId="formPhoto" className="create-post-input">
+
+                <Form.Control type="file" onChange={handleImageChange} />
+
                 <Form.Control type="text" placeholder="URL de la foto" value={crearPost.formPhoto} onChange={handleInputChange} required />
+
               </Form.Group>
               <div className="container-btn">
                 <Button className="btn-footer" type="submit">
