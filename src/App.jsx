@@ -14,10 +14,15 @@ import Login from "./views/Login";
 import Contact from "./views/Contact";
 import Profile from "./views/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Marquee from "./components/Marquee";
 
 function App() {
   return (
     <>
+      <div className="marquee-container">
+        <Marquee/>
+      </div>
+
       <BrowserRouter>
         <main>
           <NavigationBar />

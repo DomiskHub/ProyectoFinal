@@ -5,6 +5,9 @@ import { GlobalContext } from "../context/CardContext.jsx";
 import Cards from "./Cards.jsx";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import TextHome from "./TextHome.jsx";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const Home = () => {
   const { cats } = useContext(GlobalContext);
@@ -20,8 +23,9 @@ const Home = () => {
       <div>
         <Header />
       </div>
+      <TextHome/>
       <div>
-        <h1 className="text-center mb-4">Nuestros gatitos🐈</h1>
+        <h1 className="text-center mb-4">Nuestros gatitos 🐈</h1>
       </div>
       <div>
         {cats && (
@@ -30,10 +34,10 @@ const Home = () => {
               <Cards cats={cats} />
               <div className="glide__arrows" data-glide-el="controls">
                 <button className="glide__arrow glide__arrow--left" data-glide-dir="<">
-                  prev
+                <FontAwesomeIcon className="flechasGlide" icon={faAngleLeft} />
                 </button>
                 <button className="glide__arrow glide__arrow--right" data-glide-dir=">">
-                  next
+                <FontAwesomeIcon className="flechasGlide" icon={faAngleRight} />
                 </button>
               </div>
             </div>
