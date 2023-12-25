@@ -1,4 +1,4 @@
-import React, { useContext, useState, } from "react";
+import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/CardContext.jsx";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
@@ -12,13 +12,17 @@ const Gallery = () => {
   const [search, setSearch] = useState("");
   const [selectedSex, setSelectedSex] = useState("Todos");
   const [selectedColor, setSelectedColor] = useState("Todos");
-  const { cats, toggleFavoritePhoto, isLoggedIn, gallery , setFavorites } = useContext(GlobalContext);
+  const { cats, toggleFavoritePhoto, isLoggedIn, gallery, favorites, removeFromGallery } = useContext(GlobalContext);
   const navigate = useNavigate();
 
   if (!cats) {
     return <div>Cargando gatos...</div>;
   }
 
+  const isFavorite = (id) => {
+    const findFavorite = favorites.find((favorite) => favorite.id == id);
+    return findFavorite;
+  };
 
   const filteredCats = cats.filter((cat) => {
     const isNameMatch = cat.nombre
@@ -37,7 +41,7 @@ const Gallery = () => {
       <Card.Img className="catcard-img" variant="top" src={post.formPhoto} />
       {isLoggedIn && (
         <div className="icon" onClick={() => toggleFavoritePhoto(post)}>
-          <IconHeart filled={post.liked} />
+          <IconHeart filled={isFavorite(post.id)} />
         </div>
       )}
       <Card.Body>
@@ -59,12 +63,15 @@ const Gallery = () => {
               <Link to="/adopta">
                 <Button className="button-card button-card-gallery me-2">Adoptar</Button>{" "}
               </Link>
-              <Button className="button-card" onClick={() => navigate(`/detalle-gato/${post.id}`)}>
+              <Button className="button-card" onClick={() => navigate(`/detalle-gato-post/${post.id}`)}>
                 Mas info
+              </Button>
+              <Button variant="danger" onClick={() => removeFromGallery(post.id)}>
+                Borrar
               </Button>
             </div>
           ) : (
-            <Button className="button-card" onClick={() => navigate(`/detalle-gato/${post.id}`)}>
+            <Button className="button-card" onClick={() => navigate(`/detalle-gato-post/${post.id}`)}>
               Mas info
             </Button>
           )}
@@ -72,7 +79,7 @@ const Gallery = () => {
       </ListGroup>
     </Card>
   ));
-  
+
   return (
     <Container>
       <div>
@@ -100,7 +107,7 @@ const Gallery = () => {
             <Card.Img className="catcard-img" variant="top" src={cat.imagen} />
             {isLoggedIn && (
               <div className="icon" onClick={() => toggleFavoritePhoto(cat)}>
-                <IconHeart filled={cat.liked} />
+                <IconHeart filled={isFavorite(cat.id)} />
               </div>
             )}
             <Card.Body>
@@ -133,8 +140,8 @@ const Gallery = () => {
                   </Button>
                 )}
               </ListGroup.Item>
-            </ListGroup >
-          </Card  >
+            </ListGroup>
+          </Card>
         ))}
         {galleryPosts}
       </div>

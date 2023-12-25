@@ -15,12 +15,13 @@ import Contact from "./views/Contact";
 import Profile from "./views/Profile";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Marquee from "./components/Marquee";
+import DetailCardPosts from "./views/DetailCardPosts";
 
 function App() {
   return (
     <>
       <div className="marquee-container">
-        <Marquee/>
+        <Marquee />
       </div>
 
       <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
             <Route path="/quienes_somos" element={<AboutUs />} />
             <Route path="/galeria" element={<Gallery />} />
             <Route path="/detalle-gato/:id" element={<DetailCard />} />
+            <Route path="/detalle-gato-post/:id" element={<DetailCardPosts />} />
             <Route
               path="/adopta"
               element={
