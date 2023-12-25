@@ -6,6 +6,45 @@
 }
 
 
+/* MARQUEE DEL HOME, TXT EN MOVIMIENTO */
+.marquee-container{
+  width: 100%;
+  color: white;
+  background-color: #000;
+
+}
+
+.marquee {
+  height: 25px;
+  width: 50%;
+  overflow: hidden;
+  position: relative;
+  margin: auto;
+}
+
+.marquee div {
+  display: block;
+  width: 250%;
+  height: 30px;
+  position: absolute;
+  overflow: hidden;
+
+  animation: marquee 9s linear infinite;
+}
+
+.marquee span {
+  float: left;
+  width: 50%;
+}
+
+@keyframes marquee {
+  0% { left: 0; }
+  100% { left: -125%; }
+}
+
+
+
+
 .row{
   flex-wrap: nowrap;
 }
@@ -81,6 +120,87 @@ a {
   margin: 5% 0;
 }
 
+
+
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
+.text-home-black{
+  text-align:center;
+  background-color: #a155c1;;
+  color:#ffffff;
+  font-family:'Roboto';
+  font-weight:300;
+  font-size: 2.5rem;
+  padding: 2%;
+  margin-bottom: 3%;
+  overflow:hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform: translate3d(0,0,0);
+}
+
+.text-home-black div {
+  display:inline-block;
+  overflow:hidden;
+  white-space:nowrap;
+  width: 20%;
+}
+
+.text-home-black div:first-of-type {    
+animation: showup 10s infinite;
+}
+
+.text-home-black div:last-of-type {
+width:0px;
+animation: reveal 10s infinite;
+}
+
+.text-home-black div:last-of-type span {
+margin-left:-355px;
+animation: slidein 10s infinite;
+}
+
+@keyframes showup {
+0% {opacity:0;}
+20% {opacity:1;}
+80% {opacity:1;}
+100% {opacity:0;}
+}
+
+@keyframes slidein {
+0% { margin-left:-800px; }
+20% { margin-left:-800px; }
+35% { margin-left:0px; }
+100% { margin-left:0px; }
+}
+
+@keyframes reveal {
+0% {opacity:0;width:0px;}
+20% {opacity:1;width:0px;}
+30% {width:55%;}
+80% {opacity:1;}
+100% {opacity:0;width:55%;}
+}
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
+
+
+.text-home{
+  padding: 0% 10%;
+  text-align: center;
+  font-size: 1rem;
+  color: #000;
+  margin-top: 1%;
+  margin-bottom: 5%;
+
+}
+
+
+
+
+
 /* GLIDE */
 
 .glide__slide {
@@ -89,8 +209,16 @@ a {
 
 .glide__arrow--left,
 .glide__arrow--right {
-  background-color: black;
+  background-color: #bdbdbd;
+  opacity: 80%;
+    border-radius: 50%;
 }
+.flechasGlide{
+  font-size: 2.0rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px black;
+}
+
 
 /*CARDS*/
 
@@ -799,7 +927,64 @@ footer p {
   .btns-perfil {
     width: 100%;
   }
+
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO MOBILE */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO MOBILE */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO MOBILE */
+.text-home-black{
+  font-size: 1rem;
+  height:10vh;
 }
+
+.text-home-black div {
+  width: 100%;
+}
+
+@keyframes reveal {
+0% {opacity:0;width:0px;}
+20% {opacity:1;width:0px;}
+30% {width:100%;}
+80% {opacity:1;}
+100% {opacity:0;width:100%;}
+}
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO MOBILE */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO MOBILE */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO MOBILE */
+
+
+
+
+}
+
+
+
+@media only screen and (min-width: 750px) and (max-width: 1000px) {
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+.text-home-black{
+  font-size: 1rem;
+  height:20vh;
+}
+
+.text-home-black div {
+  width: 100%;
+}
+
+@keyframes reveal {
+0% {opacity:0;width:0px;}
+20% {opacity:1;width:0px;}
+30% {width:100%;}
+80% {opacity:1;}
+100% {opacity:0;width:100%;}
+}
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+
+}
+
+
 
 /* MEDIA PROFILE - NAV-TABS */
 .nav-tabs .nav-link {
@@ -812,6 +997,18 @@ footer p {
   margin-right: 0;
   flex: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* MEDIA QUERIES PARA TABLET */
 
@@ -839,6 +1036,7 @@ footer p {
   .adoption-text {
     margin-left: 100px;
     margin-right: 100px;
+    text-align: justify;
   }
 
   /* MEDIA GALLERY */
@@ -868,7 +1066,40 @@ footer p {
     width: 70%;
     margin-bottom: 20px;
   }
+
+
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+.text-home-black{
+  font-size: 2rem;
+  height:20vh;
 }
+
+.text-home-black div {
+  width: 100%;
+}
+
+@keyframes reveal {
+0% {opacity:0;width:0px;}
+20% {opacity:1;width:0px;}
+30% {width:100%;}
+80% {opacity:1;}
+100% {opacity:0;width:100%;}
+}
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+
+
+}
+
+
+
+
+
+
+
 
 /* MEDIA ABOUT US */
 .section-title,
