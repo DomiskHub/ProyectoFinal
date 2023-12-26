@@ -51,7 +51,7 @@ const Login = () => {
               <Button className="sesion-submit-btn" type="submit">
                 Iniciar Sesión
               </Button>
-              <Button className="login-submit-btn" type="submit">
+              <Button className="login-submit-btn" type="submit" onClick={() => navigate("/crear_cuenta")}>
                 Crear cuenta
               </Button>
             </div>

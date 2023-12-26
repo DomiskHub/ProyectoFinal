@@ -145,7 +145,6 @@ const GlobalProvider = ({ children }) => {
     localStorage.removeItem("token");
     setIsLoggedIn(false);
     navigate("/");
-    setProfileImage([]);
     setGallery([]);
   };
 
@@ -153,7 +152,6 @@ const GlobalProvider = ({ children }) => {
     cat.liked = !cat.liked;
     const exist = favorites.includes(cat);
     exist ? setFavorites(favorites.filter((favorite) => favorite.id !== cat.id)) : setFavorites([...favorites, cat]);
-  
   };
 
   const submitForm = (formData) => {
