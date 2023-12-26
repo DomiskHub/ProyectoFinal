@@ -58,18 +58,8 @@ const DetailCardPosts = () => {
                     {cat.formEdad}
                   </Card.Text>
                   <Card.Text>
-                    <strong>Pelaje: negro </strong>
-                    {cat.pelaje}
-                  </Card.Text>
-                  <Card.Text>
-                    <strong>Detalle: gato </strong>
-                    {cat.descripcion}
-                  </Card.Text>
-                  <Card.Text>
-                    <strong>Ubicacion: chile </strong> {cat.ubicacion}
-                  </Card.Text>
-                  <Card.Text>
-                    <strong>Esterilizado: Si</strong> {cat.esterilizado}
+                    <strong>Descripción:</strong>
+                    {cat.formDescripcion}
                   </Card.Text>
                 </div>
                 <div className="mt-auto">
@@ -87,3 +77,4 @@ const DetailCardPosts = () => {
 };
 
 export default DetailCardPosts;
+

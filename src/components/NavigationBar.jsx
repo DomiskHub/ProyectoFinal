@@ -8,8 +8,7 @@ import { GlobalContext } from "../context/CardContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faArrowRightFromBracket, faCat, faHouse } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-regular-svg-icons"; 
-
-
+import Marquee from "./Marquee";
 
 const NavigationBar = () => {
   const navigate = useNavigate();
@@ -21,6 +20,12 @@ const NavigationBar = () => {
   };
 
   return (
+    <>
+      {!isLoggedIn && ( 
+        <div className="marquee-container">
+          <Marquee />
+        </div>
+      )}
     <Navbar className="custom-navbar text-dark py-4" expand="md" variant="light">
       <Container>
         <Navbar.Brand as={Link} to="/" className="ms-auto">
@@ -62,6 +67,7 @@ const NavigationBar = () => {
               </>
             ) : (
               <>
+
                 <Link to="/iniciar_sesion" className="m-1 nav-login-button link">
                   <button
                     className={`btn btn-dark ${activeButton === "iniciar_sesion" ? "active-nav" : ""}`}
@@ -81,6 +87,7 @@ const NavigationBar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </>
   );
 };
 

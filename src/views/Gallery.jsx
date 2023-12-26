@@ -3,7 +3,7 @@ import { GlobalContext } from "../context/CardContext.jsx";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 import Container from "react-bootstrap/Container";
-import { Button } from "react-bootstrap";
+import { Button, Toast  } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import IconHeart from "../components/IconHeart.jsx";
@@ -12,18 +12,29 @@ const Gallery = () => {
   const [search, setSearch] = useState("");
   const [selectedSex, setSelectedSex] = useState("Todos");
   const [selectedColor, setSelectedColor] = useState("Todos");
-  const { cats, toggleFavoritePhoto, isLoggedIn, gallery, favorites, removeFromGallery } = useContext(GlobalContext);
+  const [showToast, setShowToast] = useState(false);
+  const { cats, toggleFavoritePhoto, isLoggedIn, gallery, favorites, removeFromGallery, } = useContext(GlobalContext);
   const navigate = useNavigate();
+  
+  const toggleToast = () => {
+    setShowToast(true); // mostrar el toast al dar like al corazon
+    setTimeout(() => {
+      setShowToast(false); // ocultar el toast despues de los 3 seg
+    }, 3000); // duracion toast
+  };
+
 
   if (!cats) {
     return <div>Cargando gatos...</div>;
   }
+  
 
   const isFavorite = (id) => {
     const findFavorite = favorites.find((favorite) => favorite.id == id);
     return findFavorite;
   };
 
+  
   const filteredCats = cats.filter((cat) => {
     const isNameMatch = cat.nombre
       .normalize("NFD")
@@ -81,6 +92,7 @@ const Gallery = () => {
   ));
 
   return (
+    <>
     <Container>
       <div>
         <h1 className="m-4 text-center">Gatitos en adopción</h1>
@@ -106,7 +118,10 @@ const Gallery = () => {
           <Card className="text-center" key={index} style={{ width: "18rem" }}>
             <Card.Img className="catcard-img" variant="top" src={cat.imagen} />
             {isLoggedIn && (
-              <div className="icon" onClick={() => toggleFavoritePhoto(cat)}>
+              <div className="icon" onClick={() => {
+                toggleFavoritePhoto(cat);
+                toggleToast(); // mostrar el Toast al hacer clic en el corazón
+              }}>
                 <IconHeart filled={isFavorite(cat.id)} />
               </div>
             )}
@@ -146,7 +161,22 @@ const Gallery = () => {
         {galleryPosts}
       </div>
     </Container>
+    <Toast show={showToast} onClose={() => setShowToast(false)} style={{
+                  position: "fixed",
+                  top: "20px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  zIndex: 1,
+                }}>
+      <Toast.Header>
+        <strong className="me-auto">¡Favorito añadido!</strong>
+      </Toast.Header>
+      <Toast.Body>El gatito de ha añadido a tus favoritos.</Toast.Body>
+    </Toast>
+  </>
   );
+
+  
 };
 
 export default Gallery;
