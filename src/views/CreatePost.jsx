@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Container, Form, Button, Card, Toast } from "react-bootstrap";
-import { GlobalContext } from "../context/CardContext";
+import { GlobalContext } from "../context/GlobalContext";
 
 const CreatePost = () => {
   const { addPost } = useContext(GlobalContext);
@@ -60,14 +60,7 @@ const CreatePost = () => {
     e.preventDefault();
 
     // Validar campos obligatorios
-    if (
-      !crearPost.formFirstName ||
-      !crearPost.formSexo ||
-      !crearPost.formColor ||
-      !crearPost.formEdad ||
-      !crearPost.formDescripcion ||
-      !crearPost.formPhoto
-    ) {
+    if (!crearPost.formFirstName || !crearPost.formSexo || !crearPost.formColor || !crearPost.formEdad || !crearPost.formDescripcion || !crearPost.formPhoto) {
       setError("Por favor, complete todos los campos.");
       return;
     }
@@ -86,39 +79,18 @@ const CreatePost = () => {
           <Card.Body>
             <h2>Formulario para crear publicación</h2>
             <Form className="form-crear-publicacion" onSubmit={handleSubmit}>
-              <Form.Group
-                controlId="formFirstName"
-                className="create-post-input"
-              >
-                <Form.Control
-                  type="text"
-                  placeholder="Nombre del gato *"
-                  value={crearPost.formFirstName}
-                  onChange={handleInputChange}
-                  required
-                />
+              <Form.Group controlId="formFirstName" className="create-post-input">
+                <Form.Control type="text" placeholder="Nombre del gato *" value={crearPost.formFirstName} onChange={handleInputChange} required />
               </Form.Group>
               <Form.Group controlId="formSexo" className="create-post-input">
-                <Form.Control
-                  as="select"
-                  value={crearPost.formSexo}
-                  onChange={handleInputChange}
-                  required
-                >
+                <Form.Control as="select" value={crearPost.formSexo} onChange={handleInputChange} required>
                   <option value="">Seleccionar sexo</option>
                   <option value="Macho">Macho</option>
                   <option value="Hembra">Hembra</option>
                 </Form.Control>
               </Form.Group>
               <Form.Group controlId="formColor" className="create-post-input">
-                <Form.Control
-                  as="select"
-                  className="input-adoption-form"
-                  name="color"
-                  value={crearPost.formColor}
-                  onChange={handleInputChange}
-                  required
-                >
+                <Form.Control as="select" className="input-adoption-form" name="color" value={crearPost.formColor} onChange={handleInputChange} required>
                   <option value="">Seleccionar color</option>
                   <option value="negro">Negro</option>
                   <option value="blanco">Blanco</option>
@@ -140,17 +112,8 @@ const CreatePost = () => {
                   max="99"
                 />
               </Form.Group>
-              <Form.Group
-                controlId="formDescripcion"
-                className="create-post-input"
-              >
-                <Form.Control
-                  as="textarea"
-                  placeholder="Descripción"
-                  value={crearPost.formDescripcion}
-                  onChange={handleInputChange}
-                  required
-                />
+              <Form.Group controlId="formDescripcion" className="create-post-input">
+                <Form.Control as="textarea" placeholder="Descripción" value={crearPost.formDescripcion} onChange={handleInputChange} required />
               </Form.Group>
               <Form.Group controlId="formPhoto" className="create-post-input">
                 <Form.Control type="file" onChange={handleImageChange} />
@@ -160,8 +123,7 @@ const CreatePost = () => {
                   Publicar
                 </Button>
               </div>
-              {error && <p style={{ color: "red" }}>{error}</p>}{" "}
-              {/* Mostrar mensaje de error si existe */}
+              {error && <p style={{ color: "red" }}>{error}</p>} {/* Mostrar mensaje de error si existe */}
               <Toast
                 show={showToast}
                 onClose={() => setShowToast(false)}

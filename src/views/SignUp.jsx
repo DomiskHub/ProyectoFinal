@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { Container, Form, Button, Card } from "react-bootstrap";
+import { Container, Form, Button, Card, Toast } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { GlobalContext } from "../context/CardContext";
+import { GlobalContext } from "../context/GlobalContext";
 
 const SignUp = () => {
   const { submitForm } = useContext(GlobalContext);
@@ -18,6 +18,7 @@ const SignUp = () => {
   const [error, setError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [passwordMatchError, setPasswordMatchError] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -32,9 +33,9 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const { firstName, lastName, username, email, address, password, confirmPassword } = campos;
-  
+
     if (!firstName || !lastName || !username || !email || !address || !password || !confirmPassword) {
       setError(true);
       return;
@@ -47,16 +48,19 @@ const SignUp = () => {
       setPasswordMatchError(true);
       return;
     }
-  
+
     try {
-      // Llama al método submitForm del contexto para guardar los datos del usuario
       await submitForm(campos);
-      navigate("/perfil"); // Mueve la redirección dentro del bloque try
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+        navigate("/perfil");
+      }, 2000);
     } catch (error) {
-      // Manejo de errores, si es necesario
       console.error("Error al enviar el formulario:", error);
     }
   };
+
   return (
     <Container className="signup-container">
       <Card className="signup-card mt-5">
@@ -100,6 +104,24 @@ const SignUp = () => {
                 Crear mi cuenta
               </Button>
             </div>
+            <Toast
+              show={showSuccessMessage}
+              onClose={() => setShowSuccessMessage(false)}
+              autohide
+              delay={3000}
+              style={{
+                position: "fixed",
+                top: "20px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                zIndex: 1,
+              }}
+            >
+              <Toast.Header>
+                <strong className="me-auto">Éxito</strong>
+              </Toast.Header>
+              <Toast.Body>Cuenta creada exitosamente. ¡Bienvenido/a!</Toast.Body>
+            </Toast>
           </Form>
         </Card.Body>
       </Card>

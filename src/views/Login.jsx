@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext, useState } from "react";
 import { Container, Form, Button, Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { GlobalContext } from "../context/CardContext";
+import { GlobalContext } from "../context/GlobalContext";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -55,7 +55,7 @@ const Login = () => {
                 Crear cuenta
               </Button>
             </div>
-            {error && <small>* Usuario o contraseña incorrecto(s)</small>}
+            {error && <small className="d-flex justify-content-center mt-3">* Usuario o contraseña incorrecto(s)</small>}
           </Form>
         </Card.Body>
       </Card>

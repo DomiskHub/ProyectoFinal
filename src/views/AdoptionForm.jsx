@@ -241,7 +241,7 @@ const AdoptionForm = () => {
                 show={showSuccessMessage}
                 onClose={() => setShowSuccessMessage(false)}
                 autohide
-                delay={3000}
+                delay={6000}
                 style={{ position: "fixed", top: "20px", left: "50%", transform: "translateX(-50%)", zIndex: 1 }}
               >
                 <Toast.Header>

@@ -1,17 +1,14 @@
-
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap");
 
 * {
   font-family: "Roboto", sans-serif;
 }
 
-
 /* MARQUEE DEL HOME, TXT EN MOVIMIENTO */
-.marquee-container{
+.marquee-container {
   width: 100%;
   color: white;
   background-color: #000;
-
 }
 
 .marquee {
@@ -38,15 +35,12 @@
 }
 
 @keyframes marquee {
-  0% { left: 0; }
-  100% { left: -125%; }
-}
-
-
-
-
-.row{
-  flex-wrap: nowrap;
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -125%;
+  }
 }
 
 a {
@@ -120,86 +114,107 @@ a {
   margin: 5% 0;
 }
 
-
-
 /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
 /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
 /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
-.text-home-black{
-  text-align:center;
-  background-color: #a155c1;;
-  color:#ffffff;
-  font-family:'Roboto';
-  font-weight:300;
+.text-home-black {
+  text-align: center;
+  background-color: #a155c1;
+  color: #ffffff;
+  font-family: "Roboto";
+  font-weight: 300;
   font-size: 2.5rem;
   padding: 2%;
   margin-bottom: 3%;
-  overflow:hidden;
+  overflow: hidden;
   -webkit-backface-visibility: hidden;
   -webkit-perspective: 1000;
-  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 .text-home-black div {
-  display:inline-block;
-  overflow:hidden;
-  white-space:nowrap;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
   width: 20%;
 }
 
-.text-home-black div:first-of-type {    
-animation: showup 10s infinite;
+.text-home-black div:first-of-type {
+  animation: showup 10s infinite;
 }
 
 .text-home-black div:last-of-type {
-width:0px;
-animation: reveal 10s infinite;
+  width: 0px;
+  animation: reveal 10s infinite;
 }
 
 .text-home-black div:last-of-type span {
-margin-left:-355px;
-animation: slidein 10s infinite;
+  margin-left: -355px;
+  animation: slidein 10s infinite;
 }
 
 @keyframes showup {
-0% {opacity:0;}
-20% {opacity:1;}
-80% {opacity:1;}
-100% {opacity:0;}
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
 @keyframes slidein {
-0% { margin-left:-800px; }
-20% { margin-left:-800px; }
-35% { margin-left:0px; }
-100% { margin-left:0px; }
+  0% {
+    margin-left: -800px;
+  }
+  20% {
+    margin-left: -800px;
+  }
+  35% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 0px;
+  }
 }
 
 @keyframes reveal {
-0% {opacity:0;width:0px;}
-20% {opacity:1;width:0px;}
-30% {width:55%;}
-80% {opacity:1;}
-100% {opacity:0;width:55%;}
+  0% {
+    opacity: 0;
+    width: 0px;
+  }
+  20% {
+    opacity: 1;
+    width: 0px;
+  }
+  30% {
+    width: 55%;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    width: 55%;
+  }
 }
 /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
 /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
 /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO */
 
-
-.text-home{
+.text-home {
   padding: 0% 10%;
   text-align: center;
   font-size: 1rem;
   color: #000;
   margin-top: 1%;
   margin-bottom: 5%;
-
 }
-
-
-
-
 
 /* GLIDE */
 
@@ -211,14 +226,13 @@ animation: slidein 10s infinite;
 .glide__arrow--right {
   background-color: #bdbdbd;
   opacity: 80%;
-    border-radius: 50%;
+  border-radius: 50%;
 }
-.flechasGlide{
-  font-size: 2.0rem;
+.flechasGlide {
+  font-size: 2rem;
   color: #fff;
   text-shadow: 1px 1px 2px black;
 }
-
 
 /*CARDS*/
 
@@ -630,7 +644,17 @@ footer p {
 }
 
 /* PERFIL */
-.tab-principal{
+
+.fotoPerfil {
+  width: 250px;
+  height: 250px;
+  margin: 2rem 0;
+  border-radius: 50%;
+  border: 1px solid black;
+  object-fit: cover;
+}
+
+.tab-principal {
   display: block !important;
 }
 
@@ -638,7 +662,7 @@ footer p {
   display: flex;
 }
 
-.editar-perfil-form{
+.editar-perfil-form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -659,14 +683,12 @@ footer p {
   background-color: #6e3885;
 }
 
-
 .btn-cerrar-sesion-boton {
   background-color: #f22323;
 }
 .btn-cerrar-sesion-boton:hover {
   background-color: #911717;
 }
-
 
 .btn-cerrar-sesion {
   color: rgb(0, 0, 0);
@@ -689,12 +711,12 @@ footer p {
   list-style: none;
   font-weight: bold;
 }
-.boxDatos-miPerfil img {
+/* .boxDatos-miPerfil img {
   width: 55%;
   border: solid 1px #000;
   border-radius: 50%;
   margin-bottom: 5%;
-}
+} */
 
 .nav-tabs .nav-link {
   background-color: blueviolet;
@@ -702,17 +724,15 @@ footer p {
   border: solid 2px #ffffff;
 }
 
-.btn-guardar-cambios{
-  background-color: #a155c1;;
+.btn-guardar-cambios {
+  background-color: #a155c1;
   margin-top: 2%;
   margin-bottom: 2%;
   width: 50%;
 }
-.btn-guardar-cambios:hover{
-  background-color: #804599;;
+.btn-guardar-cambios:hover {
+  background-color: #804599;
 }
-
-
 
 /* CREATE POST */
 .create-post-container {
@@ -783,6 +803,13 @@ footer p {
   background-color: #6e3885;
 }
 
+.btnPost {
+  background-color: #a155c1;
+}
+
+.btnPost:hover {
+  background-color: #6e3885;
+}
 
 /* HEAD */
 /* MEDIA GALLERY  */
@@ -797,7 +824,6 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
-
 
 /*          MEDIA QUERIES        */
 
@@ -928,63 +954,80 @@ footer p {
     width: 100%;
   }
 
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO MOBILE */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO MOBILE */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO MOBILE */
-.text-home-black{
-  font-size: 1rem;
-  height:10vh;
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO MOBILE */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO MOBILE */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO MOBILE */
+  .text-home-black {
+    font-size: 1rem;
+    height: 10vh;
+  }
+
+  .text-home-black div {
+    width: 100%;
+  }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      width: 0px;
+    }
+    20% {
+      opacity: 1;
+      width: 0px;
+    }
+    30% {
+      width: 100%;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      width: 100%;
+    }
+  }
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO MOBILE */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO MOBILE */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO MOBILE */
 }
-
-.text-home-black div {
-  width: 100%;
-}
-
-@keyframes reveal {
-0% {opacity:0;width:0px;}
-20% {opacity:1;width:0px;}
-30% {width:100%;}
-80% {opacity:1;}
-100% {opacity:0;width:100%;}
-}
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO MOBILE */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO MOBILE */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO MOBILE */
-
-
-
-
-}
-
-
 
 @media only screen and (min-width: 750px) and (max-width: 1000px) {
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
-.text-home-black{
-  font-size: 1rem;
-  height:20vh;
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+  .text-home-black {
+    font-size: 1rem;
+    height: 20vh;
+  }
+
+  .text-home-black div {
+    width: 100%;
+  }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      width: 0px;
+    }
+    20% {
+      opacity: 1;
+      width: 0px;
+    }
+    30% {
+      width: 100%;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      width: 100%;
+    }
+  }
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
 }
-
-.text-home-black div {
-  width: 100%;
-}
-
-@keyframes reveal {
-0% {opacity:0;width:0px;}
-20% {opacity:1;width:0px;}
-30% {width:100%;}
-80% {opacity:1;}
-100% {opacity:0;width:100%;}
-}
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
-
-}
-
-
 
 /* MEDIA PROFILE - NAV-TABS */
 .nav-tabs .nav-link {
@@ -997,18 +1040,6 @@ footer p {
   margin-right: 0;
   flex: none;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* MEDIA QUERIES PARA TABLET */
 
@@ -1067,39 +1098,42 @@ footer p {
     margin-bottom: 20px;
   }
 
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
+  .text-home-black {
+    font-size: 2rem;
+    height: 20vh;
+  }
 
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO TABLET */
-.text-home-black{
-  font-size: 2rem;
-  height:20vh;
+  .text-home-black div {
+    width: 100%;
+  }
+
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      width: 0px;
+    }
+    20% {
+      opacity: 1;
+      width: 0px;
+    }
+    30% {
+      width: 100%;
+    }
+    80% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      width: 100%;
+    }
+  }
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
+  /* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
 }
-
-.text-home-black div {
-  width: 100%;
-}
-
-@keyframes reveal {
-0% {opacity:0;width:0px;}
-20% {opacity:1;width:0px;}
-30% {width:100%;}
-80% {opacity:1;}
-100% {opacity:0;width:100%;}
-}
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
-/* ESTILO PARA TEXTO ANIMADO BIENVENIDO A NUESTRO SITIO TABLET */
-
-
-}
-
-
-
-
-
-
-
 
 /* MEDIA ABOUT US */
 .section-title,
@@ -1156,7 +1190,7 @@ footer p {
     padding: 1rem;
   }
 
-  .navbar-nav{
+  .navbar-nav {
     margin: 1% 1%;
   }
 
@@ -1238,22 +1272,4 @@ footer p {
     width: 40%;
     padding: 2.5rem;
   }
-
-  /* MEDIA PROFILE */
-  .btns-perfil {
-    width: 50%;
-  }
-
-
-  .boxDatos-miPerfil {
-    width: 35%;
-  }
-
-  .tab-Profile {
-    width: 60%;
-  }
 }
-
-
-
-

@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { GlobalContext } from "../context/CardContext";
+import { GlobalContext } from "../context/GlobalContext";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
@@ -77,4 +77,3 @@ const DetailCardPosts = () => {
 };
 
 export default DetailCardPosts;
-
