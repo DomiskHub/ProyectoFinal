@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { GlobalContext } from "../context/CardContext";
+import { GlobalContext } from "../context/GlobalContext";
 import { Card, Button } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 
@@ -32,7 +32,7 @@ const MyPosts = () => {
             </ListGroup.Item>
             <ListGroup.Item>
               <div className="d-flex justify-content-between">
-                <Button variant="primary" onClick={() => addToGallery(post)}>
+                <Button className="btnPost" onClick={() => addToGallery(post)}>
                   Publicar en galeria
                 </Button>
                 <Button variant="danger" onClick={() => handleRemovePost(post.id)}>

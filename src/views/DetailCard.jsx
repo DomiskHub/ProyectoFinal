@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { GlobalContext } from "../context/CardContext";
+import { GlobalContext } from "../context/GlobalContext";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
@@ -38,11 +38,7 @@ const DetailCard = () => {
         <Card className="detail-card-dani">
           <div className="row">
             <div className="col-12 col-md-6">
-              <Card.Img
-                className="img-fluid"
-                variant="top"
-                src={isUserPostedCat ? cat.formPhoto : cat.imagen}
-              />
+              <Card.Img className="img-fluid" variant="top" src={isUserPostedCat ? cat.formPhoto : cat.imagen} />
             </div>
             <div className="col-12 col-md-6">
               <Card.Body className="d-flex flex-column justify-content-between h-100">
